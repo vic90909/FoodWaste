@@ -1,0 +1,35 @@
+{
+
+    "UserName":"Marcel",
+    "UserSurname":"Popescu",
+    "UserAge":77,
+    "UserEmail":"Calea Bucuresti",
+    "UserPhone":"07452222222",
+    "UserAdress":"marcelpopescu@foodsavers.com"
+    
+
+
+}
+
+
+
+{
+    "UserId":5,
+    "UserName":"Marcel",
+    "UserSurname":"Popescu",
+    "UserAge":77,
+    "UserEmail":"Calea Bucuresti8",
+    "UserPhone":"07452222222",
+    "UserAdress":"marcelpopescu@foodsavers.com",
+    "Foods":[
+        {
+            "FoodName":"Snitzel",
+            "FoodExpirationDate":"2012-12-12",
+            "FoodType":"RadaRada",
+            "FoodQuantity":"1 Chowder"
+        }
+    ]
+    
+
+
+}
