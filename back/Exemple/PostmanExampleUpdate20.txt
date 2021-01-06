@@ -1,0 +1,1720 @@
+//----------------USERS------------------
+
+{
+   "UserName":"Mitoi",
+    "UserSurname":"Victor",
+    "UserAge":21,
+    "UserEmail":"victor.mitoi@gmail.com",
+    "UserPhone":"0745175007",
+    "UserAdress":"Pitesti",
+    "UserPass":"1234"    
+}
+
+
+{
+    "UserName":"Moraru",
+    "UserSurname":"Roberta",
+    "UserAge":21,
+    "UserEmail":"roberta.moraru@gmail.com",
+    "UserPhone":"0765996605",
+    "UserAdress":"Valcea",
+    "UserPass":"1234"    
+}
+{
+    "UserName":"Tester",
+    "UserSurname":"Test",
+    "UserAge":20,
+    "UserEmail":"tester.test@gmail.com",
+    "UserPhone":"0700000000",
+    "UserAdress":"TestCountry",
+    "UserPass":"test"    
+}
+{
+    "UserName":"Giurea",
+    "UserSurname":"Gabriela",
+    "UserAge":21,
+    "UserEmail":"giurea.gabriela@gmail.com",
+    "UserPhone":"0745189507",
+    "UserAdress":"Bucuresti",
+    "UserPass":"1234"    
+}
+{
+    "UserName":"Marin",
+    "UserSurname":"Georgiana",
+    "UserAge":21,
+    "UserEmail":"georgiana@gmail.com",
+    "UserPhone":"0745189556",
+    "UserAdress":"Bucuresti",
+    "UserPass":"1234"    
+}
+{
+    "UserName":"Popescu",
+    "UserSurname":"Marius",
+    "UserAge":41,
+    "UserEmail":"mariuspopescu@gmail.com",
+    "UserPhone":"0745333444",
+    "UserAdress":"Galati",
+    "UserPass":"1234"    
+}
+
+{
+    "UserName":"Marcel",
+    "UserSurname":"Popescu",
+    "UserAge":77,
+    "UserEmail":"marcelpopescu@foodsavers.com",
+    "UserPhone":"0745333444",
+    "UserAdress":"Dobreta Turnu Severin",
+    "UserPass":"1234"    
+}
+{
+    "UserName":"Madalina",
+    "UserSurname":"Dragomir",
+    "UserAge":23,
+    "UserEmail":"madadra@foodsavers.com",
+    "UserPhone":"0745786009",
+    "UserAdress":"Craiova",
+    "UserPass":"1234"    
+}
+{
+    "UserName":"Crina",
+    "UserSurname":"Surdu",
+    "UserAge":65,
+    "UserEmail":"cinacrinaa@gmail.com",
+    "UserPhone":"0745783409",
+    "UserAdress":"Galati",
+    "UserPass":"1234"    
+}
+{
+    "UserName":"Alin",
+    "UserSurname":"Brabete",
+    "UserAge":35,
+    "UserEmail":"alinbrabete@gmail.com",
+    "UserPhone":"0745334443",
+    "UserAdress":"Sibiu",
+    "UserPass":"1234"    
+}
+{
+    "UserName":"Sorin",
+    "UserSurname":"Petre",
+    "UserAge":49,
+    "UserEmail":"sorinpetre@gmail.com",
+    "UserPhone":"0745874028",
+    "UserAdress":"Suceava",
+    "UserPass":"1234"    
+}
+{
+    "UserName":"Claudiu",
+    "UserSurname":"Taranu",
+    "UserAge":21,
+    "UserEmail":"claudiu_taranu@gmail.com",
+    "UserPhone":"0745874097",
+    "UserAdress":"Bucuresti",
+    "UserPass":"1234"    
+}
+{
+    "UserName":"Raluca",
+    "UserSurname":"Munteanu",
+    "UserAge":29,
+    "UserEmail":"ralu_mun@gmail.com",
+    "UserPhone":"0744764097",
+    "UserAdress":"Bran",
+    "UserPass":"1234"    
+}
+{
+    "UserName":"Ruxandra",
+    "UserSurname":"Hanu",
+    "UserAge":37,
+    "UserEmail":"hanuruxy@gmail.com",
+    "UserPhone":"0745037338",
+    "UserAdress":"Brasov",
+    "UserPass":"1234"    
+}
+{
+    "UserName":"Andrei",
+    "UserSurname":"Crudu",
+    "UserAge":47,
+    "UserEmail":"andrei25@gmail.com",
+    "UserPhone":"0745037342",
+    "UserAdress":"Maramures",
+    "UserPass":"1234"    
+}
+{
+    "UserName":"Luca",
+    "UserSurname":"Sava",
+    "UserAge":27,
+    "UserEmail":"savaluca@gmail.com",
+    "UserPhone":"0745452342",
+    "UserAdress":"Cluj-Napoca",
+    "UserPass":"1234"    
+}
+{
+    "UserName":"Catrina",
+    "UserSurname":"Vadloska",
+    "UserAge":44,
+    "UserEmail":"KatrinaVlada@gmail.com",
+    "UserPhone":"0749553765",
+    "UserAdress":"Iasi",
+    "UserPass":"1234"    
+}
+{
+    "UserName":"Sabrina",
+    "UserSurname":"Ionescu",
+    "UserAge":34,
+    "UserEmail":"Ionescusabrina_33a@gmail.com",
+    "UserPhone":"0747652996",
+    "UserAdress":"Timisoara",
+    "UserPass":"1234"    
+}
+{
+    "UserName":"Valeriu",
+    "UserSurname":"Ion",
+    "UserAge": 70,
+    "UserEmail":"valyvaly_33a@gmail.com",
+    "UserPhone":"0747633596",
+    "UserAdress":"Cluj-Napoca",
+    "UserPass":"1234"    
+}
+{
+    "UserName":"Cosmin",
+    "UserSurname":"Popa",
+    "UserAge": 18,
+    "UserEmail":"popacosmin@gmail.com",
+    "UserPhone":"0746999555",
+    "UserAdress":"Iasi",
+    "UserPass":"1234"    
+}
+
+    //-----------FOOD------------------
+
+{
+            "FoodName":"Sarmale",
+            "FoodExpirationDate":"2020-12-20",
+            "FoodType":"CarneDePorc",
+            "FoodQuantity":"10",
+            "Availible":"true",
+            "UserId":1
+}
+{
+            "FoodName":"Food test",
+            "FoodExpirationDate":"2021-12-20",
+            "FoodType":"Carne de test",
+            "FoodQuantity":"22",
+            "Availible":"true",
+            "UserId":3
+}
+{
+            "FoodName":"Lapte",
+            "FoodExpirationDate":"2021-1-20",
+            "FoodType":"Lactate",
+            "FoodQuantity":"3",
+            "Availible":"true",
+            "UserId":8
+
+
+}
+{
+            "FoodName":"Branza",
+            "FoodExpirationDate":"2021-2-20",
+            "FoodType":"Lactate",
+            "FoodQuantity":"1",
+            "Availible":"true",
+            "UserId":1
+
+
+}
+{
+            "FoodName":"BranzaHohland",
+            "FoodExpirationDate":"2021-2-20",
+            "FoodType":"Lactate",
+            "FoodQuantity":"2",
+            "Availible":"true",
+            "UserId":5
+
+
+}
+{
+            "FoodName":"Cacaval",
+            "FoodExpirationDate":"2021-2-18",
+            "FoodType":"Lactate",
+            "FoodQuantity":"4",
+            "Availible":"true",
+            "UserId":7
+
+
+}
+{
+            "FoodName":"Lapte Sana",
+            "FoodExpirationDate":"2021-2-18",
+            "FoodType":"Lactate",
+            "FoodQuantity":"3",
+            "Availible":"true",
+            "UserId":9
+
+
+}{
+            "FoodName":"Piept de pui",
+            "FoodExpirationDate":"2021-2-18",
+            "FoodType":"Carne de pui",
+            "FoodQuantity":"8",
+            "Availible":"true",
+            "UserId":19
+
+
+}
+{
+            "FoodName":"Macra",
+            "FoodExpirationDate":"2021-2-18",
+            "FoodType":"Carne de vita",
+            "FoodQuantity":"2",
+            "Availible":"true",
+            "UserId":12
+
+
+}
+{
+            "FoodName":"Cotlet",
+            "FoodExpirationDate":"2021-2-18",
+            "FoodType":"Carne de porc",
+            "FoodQuantity":"1",
+            "Availible":"true",
+            "UserId":1
+
+
+}
+{
+            "FoodName":"Cotlet",
+            "FoodExpirationDate":"2021-2-18",
+            "FoodType":"Carne de porc",
+            "FoodQuantity":"1",
+            "Availible":"true",
+            "UserId":10
+
+
+}
+{
+            "FoodName":"Salam",
+            "FoodExpirationDate":"2021-2-18",
+            "FoodType":"Mezeluri",
+            "FoodQuantity":"1",
+            "Availible":"true",
+            "UserId":4
+
+
+}
+{
+            "FoodName":"Salam sasesc",
+            "FoodExpirationDate":"2021-2-18",
+            "FoodType":"Mezeluri",
+            "FoodQuantity":"1",
+            "Availible":"true",
+            "UserId":6
+
+
+}
+{
+            "FoodName":"Salam Victoria",
+            "FoodExpirationDate":"2021-1-30",
+            "FoodType":"Mezeluri",
+            "FoodQuantity":"1",
+            "Availible":"true",
+            "UserId":8
+
+
+}
+{
+            "FoodName":"Salata",
+            "FoodExpirationDate":"2021-1-30",
+            "FoodType":"Legume",
+            "FoodQuantity":"7",
+            "Availible":"true",
+            "UserId":11
+
+
+}
+{
+            "FoodName":"Castraveti",
+            "FoodExpirationDate":"2021-1-30",
+            "FoodType":"Legume",
+            "FoodQuantity":"5",
+            "Availible":"true",
+            "UserId":14
+
+
+}
+{
+            "FoodName":"Rosii",
+            "FoodExpirationDate":"2021-1-12",
+            "FoodType":"Legume",
+            "FoodQuantity":"10",
+            "Availible":"true",
+            "UserId":1
+
+
+}
+{
+            "FoodName":"Ceapa",
+            "FoodExpirationDate":"2021-1-12",
+            "FoodType":"Legume",
+            "FoodQuantity":"2",
+            "Availible":"true",
+            "UserId":15
+
+
+}
+{
+            "FoodName":"Iaurt",
+            "FoodExpirationDate":"2021-3-15",
+            "FoodType":"Lactate",
+            "FoodQuantity":"2",
+            "Availible":"true",
+            "UserId":18
+
+
+}
+{
+            "FoodName":"Iaurt",
+            "FoodExpirationDate":"2021-3-15",
+            "FoodType":"Lactate",
+            "FoodQuantity":"3",
+            "Availible":"true",
+            "UserId":10
+
+
+}
+{
+            "FoodName":"Oua",
+            "FoodExpirationDate":"2021-3-15",
+            "FoodType":"Oua",
+            "FoodQuantity":"15",
+            "Availible":"true",
+            "UserId":20
+
+
+}
+{
+            "FoodName":"Orez",
+            "FoodExpirationDate":"2022-8-11",
+            "FoodType":"Perisabile",
+            "FoodQuantity":"4",
+            "Availible":"true",
+            "UserId":16
+
+
+}
+{
+            "FoodName":"Faina",
+            "FoodExpirationDate":"2023-7-11",
+            "FoodType":"Perisabile",
+            "FoodQuantity":"2",
+            "Availible":"true",
+            "UserId":15
+
+
+}
+{
+            "FoodName":"Pesmet",
+            "FoodExpirationDate":"2023-7-11",
+            "FoodType":"Perisabile",
+            "FoodQuantity":"1",
+            "Availible":"true",
+            "UserId":7
+
+
+}
+{
+            "FoodName":"Compot prune",
+            "FoodExpirationDate":"2023-7-11",
+            "FoodType":"Conserve",
+            "FoodQuantity":"1",
+            "Availible":"true",
+            "UserId":9
+
+
+}
+{
+            "FoodName":"Zacusca",
+            "FoodExpirationDate":"2025-7-11",
+            "FoodType":"Conserve",
+            "FoodQuantity":"7",
+            "Availible":"true",
+            "UserId":17
+
+
+}
+
+//Friend
+{
+    "UserFriendId":1,
+    "UserId":4
+}
+{
+    "UserFriendId":1,           //prietenie intre 1 si test
+    "UserId":3
+}
+{
+    "UserFriendId":5,
+    "UserId":4
+}
+{
+    "UserFriendId":7,
+    "UserId":4
+}
+{
+    "UserFriendId":16,
+    "UserId":5
+}
+{
+    "UserFriendId":1,
+    "UserId":5
+}
+
+
+//Group
+{
+    "CreatorId":4,
+    "GroupDescription":"Vegani"
+}
+{
+    "CreatorId":3,
+    "GroupDescription":"Grup de test"
+}
+
+{
+    
+    "CreatorId": 1,
+    "GroupDescription": "Vegetarieni"
+}
+{
+    "CreatorId":18,
+    "GroupDescription":"Carmivori"
+}
+{
+    "CreatorId":20,
+    "GroupDescription":"Lactofili"
+}
+{
+    "CreatorId":4,
+    "GroupDescription":"Lactofili"
+}
+
+
+
+//---------------GETALL------------------------------------
+
+
+  [  {
+        "UserId": 1,
+        "UserName": "Mitoi",
+        "UserSurname": "Victor",
+        "UserAge": 21,
+        "UserEmail": "victor.mitoi@gmail.com",
+        "UserPhone": "0745175007",
+        "UserAdress": "Pitesti",
+        "UserPass": "1234",
+        "Foods": [
+            {
+                "FoodId": 1,
+                "FoodName": "Sarmale",
+                "FoodExpirationDate": "2020-12-20",
+                "FoodType": "CarneDePorc",
+                "FoodQuantity": "10",
+                "Available": null,
+                "UserId": 1
+            },
+            {
+                "FoodId": 8,
+                "FoodName": "Branza",
+                "FoodExpirationDate": "2021-02-19",
+                "FoodType": "Lactate",
+                "FoodQuantity": "1",
+                "Available": null,
+                "UserId": 1
+            },
+            {
+                "FoodId": 19,
+                "FoodName": "Cotlet",
+                "FoodExpirationDate": "2021-02-17",
+                "FoodType": "Carne de porc",
+                "FoodQuantity": "1",
+                "Available": null,
+                "UserId": 1
+            },
+            {
+                "FoodId": 36,
+                "FoodName": "Rosii",
+                "FoodExpirationDate": "2021-01-11",
+                "FoodType": "Legume",
+                "FoodQuantity": "10",
+                "Available": null,
+                "UserId": 1
+            }
+        ],
+        "Friends": [
+            {
+                "FriendsId": 3,
+                "UserFriendId": 2,
+                "UserId": 1
+            },
+            {
+                "FriendsId": 5,
+                "UserFriendId": 3,
+                "UserId": 1
+            },
+            {
+                "FriendsId": 15,
+                "UserFriendId": 5,
+                "UserId": 1
+            }
+        ],
+        "Groups": [
+            {
+                "GroupId": 1,
+                "CreatorId": 1,
+                "GroupDescription": "Vegetarieni"
+            }
+        ]
+    },
+    {
+        "UserId": 2,
+        "UserName": "Moraru",
+        "UserSurname": "Roberta",
+        "UserAge": 21,
+        "UserEmail": "roberta.moraru@gmail.com",
+        "UserPhone": "0765996605",
+        "UserAdress": "Valcea",
+        "UserPass": "1234",
+        "Foods": [
+            {
+                "FoodId": 3,
+                "FoodName": "Lapte",
+                "FoodExpirationDate": "2021-01-19",
+                "FoodType": "Lactate",
+                "FoodQuantity": "3",
+                "Available": null,
+                "UserId": 2
+            }
+        ],
+        "Friends": [
+            {
+                "FriendsId": 2,
+                "UserFriendId": 1,
+                "UserId": 2
+            },
+            {
+                "FriendsId": 7,
+                "UserFriendId": 4,
+                "UserId": 2
+            },
+            {
+                "FriendsId": 26,
+                "UserFriendId": 15,
+                "UserId": 2
+            },
+            {
+                "FriendsId": 32,
+                "UserFriendId": 16,
+                "UserId": 2
+            }
+        ],
+        "Groups": []
+    },
+    {
+        "UserId": 3,
+        "UserName": "Tester",
+        "UserSurname": "Test",
+        "UserAge": 20,
+        "UserEmail": "tester.test@gmail.com",
+        "UserPhone": "0700000000",
+        "UserAdress": "TestCountry",
+        "UserPass": "test",
+        "Foods": [
+            {
+                "FoodId": 2,
+                "FoodName": "Food test",
+                "FoodExpirationDate": "2021-12-20",
+                "FoodType": "Carne de test",
+                "FoodQuantity": "22",
+                "Available": null,
+                "UserId": 3
+            },
+            {
+                "FoodId": 33,
+                "FoodName": "Rosii",
+                "FoodExpirationDate": "2021-01-11",
+                "FoodType": "Legume",
+                "FoodQuantity": "10",
+                "Available": null,
+                "UserId": 3
+            }
+        ],
+        "Friends": [
+            {
+                "FriendsId": 4,
+                "UserFriendId": 1,
+                "UserId": 3
+            },
+            {
+                "FriendsId": 48,
+                "UserFriendId": 18,
+                "UserId": 3
+            }
+        ],
+        "Groups": [
+            {
+                "GroupId": 2,
+                "CreatorId": 3,
+                "GroupDescription": "Grup de test"
+            }
+        ]
+    },
+    {
+        "UserId": 4,
+        "UserName": "Giurea",
+        "UserSurname": "Gabriela",
+        "UserAge": 21,
+        "UserEmail": "giurea.gabriela@gmail.com",
+        "UserPhone": "0745189507",
+        "UserAdress": "Bucuresti",
+        "UserPass": "1234",
+        "Foods": [
+            {
+                "FoodId": 16,
+                "FoodName": "Piept de pui",
+                "FoodExpirationDate": "2021-02-17",
+                "FoodType": "Carne de pui",
+                "FoodQuantity": "8",
+                "Available": null,
+                "UserId": 4
+            },
+            {
+                "FoodId": 23,
+                "FoodName": "Salam",
+                "FoodExpirationDate": "2021-02-17",
+                "FoodType": "Mezeluri",
+                "FoodQuantity": "1",
+                "Available": null,
+                "UserId": 4
+            },
+            {
+                "FoodId": 56,
+                "FoodName": "Compot prune",
+                "FoodExpirationDate": "2023-07-10",
+                "FoodType": "Conserve",
+                "FoodQuantity": "1",
+                "Available": null,
+                "UserId": 4
+            },
+            {
+                "FoodId": 59,
+                "FoodName": "Zacusca",
+                "FoodExpirationDate": "2025-07-10",
+                "FoodType": "Conserve",
+                "FoodQuantity": "7",
+                "Available": null,
+                "UserId": 4
+            }
+        ],
+        "Friends": [
+            {
+                "FriendsId": 6,
+                "UserFriendId": 2,
+                "UserId": 4
+            },
+            {
+                "FriendsId": 8,
+                "UserFriendId": 5,
+                "UserId": 4
+            },
+            {
+                "FriendsId": 10,
+                "UserFriendId": 7,
+                "UserId": 4
+            }
+        ],
+        "Groups": [
+            {
+                "GroupId": 3,
+                "CreatorId": 4,
+                "GroupDescription": "Vegani"
+            }
+        ]
+    },
+    {
+        "UserId": 5,
+        "UserName": "Marin",
+        "UserSurname": "Georgiana",
+        "UserAge": 21,
+        "UserEmail": "georgiana@gmail.com",
+        "UserPhone": "0745189556",
+        "UserAdress": "Bucuresti",
+        "UserPass": "1234",
+        "Foods": [
+            {
+                "FoodId": 9,
+                "FoodName": "BranzaHohland",
+                "FoodExpirationDate": "2021-02-19",
+                "FoodType": "Lactate",
+                "FoodQuantity": "2",
+                "Available": null,
+                "UserId": 5
+            }
+        ],
+        "Friends": [
+            {
+                "FriendsId": 9,
+                "UserFriendId": 4,
+                "UserId": 5
+            },
+            {
+                "FriendsId": 12,
+                "UserFriendId": 16,
+                "UserId": 5
+            },
+            {
+                "FriendsId": 14,
+                "UserFriendId": 1,
+                "UserId": 5
+            },
+            {
+                "FriendsId": 28,
+                "UserFriendId": 15,
+                "UserId": 5
+            }
+        ],
+        "Groups": [
+            {
+                "GroupId": 5,
+                "CreatorId": 5,
+                "GroupDescription": "Lactofili"
+            }
+        ]
+    },
+    {
+        "UserId": 6,
+        "UserName": "Popescu",
+        "UserSurname": "Marius",
+        "UserAge": 41,
+        "UserEmail": "mariuspopescu@gmail.com",
+        "UserPhone": "0745333444",
+        "UserAdress": "Galati",
+        "UserPass": "1234",
+        "Foods": [
+            {
+                "FoodId": 10,
+                "FoodName": "Cacaval",
+                "FoodExpirationDate": "2021-02-17",
+                "FoodType": "Lactate",
+                "FoodQuantity": "4",
+                "Available": null,
+                "UserId": 6
+            },
+            {
+                "FoodId": 15,
+                "FoodName": "Piept de pui",
+                "FoodExpirationDate": "2021-02-17",
+                "FoodType": "Carne de pui",
+                "FoodQuantity": "8",
+                "Available": null,
+                "UserId": 6
+            },
+            {
+                "FoodId": 24,
+                "FoodName": "Salam sasesc",
+                "FoodExpirationDate": "2021-02-17",
+                "FoodType": "Mezeluri",
+                "FoodQuantity": "1",
+                "Available": null,
+                "UserId": 6
+            },
+            {
+                "FoodId": 34,
+                "FoodName": "Rosii",
+                "FoodExpirationDate": "2021-01-11",
+                "FoodType": "Legume",
+                "FoodQuantity": "10",
+                "Available": null,
+                "UserId": 6
+            }
+        ],
+        "Friends": [
+            {
+                "FriendsId": 44,
+                "UserFriendId": 17,
+                "UserId": 6
+            },
+            {
+                "FriendsId": 58,
+                "UserFriendId": 19,
+                "UserId": 6
+            }
+        ],
+        "Groups": []
+    },
+    {
+        "UserId": 7,
+        "UserName": "Marcel",
+        "UserSurname": "Popescu",
+        "UserAge": 77,
+        "UserEmail": "marcelpopescu@foodsavers.com",
+        "UserPhone": "0745333444",
+        "UserAdress": "Dobreta Turnu Severin",
+        "UserPass": "1234",
+        "Foods": [
+            {
+                "FoodId": 11,
+                "FoodName": "Cacaval",
+                "FoodExpirationDate": "2021-02-17",
+                "FoodType": "Lactate",
+                "FoodQuantity": "4",
+                "Available": null,
+                "UserId": 7
+            },
+            {
+                "FoodId": 54,
+                "FoodName": "Pesmet",
+                "FoodExpirationDate": "2023-07-10",
+                "FoodType": "Perisabile",
+                "FoodQuantity": "1",
+                "Available": null,
+                "UserId": 7
+            },
+            {
+                "FoodId": 55,
+                "FoodName": "Compot prune",
+                "FoodExpirationDate": "2023-07-10",
+                "FoodType": "Conserve",
+                "FoodQuantity": "1",
+                "Available": null,
+                "UserId": 7
+            }
+        ],
+        "Friends": [
+            {
+                "FriendsId": 11,
+                "UserFriendId": 4,
+                "UserId": 7
+            },
+            {
+                "FriendsId": 50,
+                "UserFriendId": 18,
+                "UserId": 7
+            },
+            {
+                "FriendsId": 56,
+                "UserFriendId": 19,
+                "UserId": 7
+            }
+        ],
+        "Groups": []
+    },
+    {
+        "UserId": 8,
+        "UserName": "Madalina",
+        "UserSurname": "Dragomir",
+        "UserAge": 23,
+        "UserEmail": "madadra@foodsavers.com",
+        "UserPhone": "0745786009",
+        "UserAdress": "Craiova",
+        "UserPass": "1234",
+        "Foods": [
+            {
+                "FoodId": 7,
+                "FoodName": "Lapte",
+                "FoodExpirationDate": "2021-01-19",
+                "FoodType": "Lactate",
+                "FoodQuantity": "3",
+                "Available": null,
+                "UserId": 8
+            },
+            {
+                "FoodId": 25,
+                "FoodName": "Salam Victoria",
+                "FoodExpirationDate": "2021-01-29",
+                "FoodType": "Mezeluri",
+                "FoodQuantity": "1",
+                "Available": null,
+                "UserId": 8
+            }
+        ],
+        "Friends": [
+            {
+                "FriendsId": 38,
+                "UserFriendId": 16,
+                "UserId": 8
+            },
+            {
+                "FriendsId": 40,
+                "UserFriendId": 17,
+                "UserId": 8
+            },
+            {
+                "FriendsId": 60,
+                "UserFriendId": 19,
+                "UserId": 8
+            },
+            {
+                "FriendsId": 62,
+                "UserFriendId": 20,
+                "UserId": 8
+            }
+        ],
+        "Groups": []
+    },
+    {
+        "UserId": 9,
+        "UserName": "Crina",
+        "UserSurname": "Surdu",
+        "UserAge": 65,
+        "UserEmail": "cinacrinaa@gmail.com",
+        "UserPhone": "0745783409",
+        "UserAdress": "Galati",
+        "UserPass": "1234",
+        "Foods": [
+            {
+                "FoodId": 12,
+                "FoodName": "Lapte Sana",
+                "FoodExpirationDate": "2021-02-17",
+                "FoodType": "Lactate",
+                "FoodQuantity": "3",
+                "Available": null,
+                "UserId": 9
+            },
+            {
+                "FoodId": 35,
+                "FoodName": "Rosii",
+                "FoodExpirationDate": "2021-01-11",
+                "FoodType": "Legume",
+                "FoodQuantity": "10",
+                "Available": null,
+                "UserId": 9
+            },
+            {
+                "FoodId": 38,
+                "FoodName": "Ceapa",
+                "FoodExpirationDate": "2021-01-11",
+                "FoodType": "Legume",
+                "FoodQuantity": "8",
+                "Available": null,
+                "UserId": 9
+            },
+            {
+                "FoodId": 57,
+                "FoodName": "Compot prune",
+                "FoodExpirationDate": "2023-07-10",
+                "FoodType": "Conserve",
+                "FoodQuantity": "1",
+                "Available": null,
+                "UserId": 9
+            }
+        ],
+        "Friends": [],
+        "Groups": []
+    },
+    {
+        "UserId": 10,
+        "UserName": "Alin",
+        "UserSurname": "Brabete",
+        "UserAge": 35,
+        "UserEmail": "alinbrabete@gmail.com",
+        "UserPhone": "0745334443",
+        "UserAdress": "Sibiu",
+        "UserPass": "1234",
+        "Foods": [
+            {
+                "FoodId": 22,
+                "FoodName": "Cotlet",
+                "FoodExpirationDate": "2021-02-17",
+                "FoodType": "Carne de porc",
+                "FoodQuantity": "1",
+                "Available": null,
+                "UserId": 10
+            },
+            {
+                "FoodId": 30,
+                "FoodName": "Castraveti",
+                "FoodExpirationDate": "2021-01-29",
+                "FoodType": "Legume",
+                "FoodQuantity": "5",
+                "Available": null,
+                "UserId": 10
+            },
+            {
+                "FoodId": 42,
+                "FoodName": "Iaurt",
+                "FoodExpirationDate": "2021-03-14",
+                "FoodType": "Lactate",
+                "FoodQuantity": "3",
+                "Available": null,
+                "UserId": 10
+            },
+            {
+                "FoodId": 58,
+                "FoodName": "Zacusca",
+                "FoodExpirationDate": "2025-07-10",
+                "FoodType": "Conserve",
+                "FoodQuantity": "3",
+                "Available": null,
+                "UserId": 10
+            }
+        ],
+        "Friends": [
+            {
+                "FriendsId": 20,
+                "UserFriendId": 14,
+                "UserId": 10
+            },
+            {
+                "FriendsId": 66,
+                "UserFriendId": 20,
+                "UserId": 10
+            }
+        ],
+        "Groups": []
+    },
+    {
+        "UserId": 11,
+        "UserName": "Sorin",
+        "UserSurname": "Petre",
+        "UserAge": 49,
+        "UserEmail": "sorinpetre@gmail.com",
+        "UserPhone": "0745874028",
+        "UserAdress": "Suceava",
+        "UserPass": "1234",
+        "Foods": [
+            {
+                "FoodId": 17,
+                "FoodName": "Piept de pui",
+                "FoodExpirationDate": "2021-02-17",
+                "FoodType": "Carne de pui",
+                "FoodQuantity": "8",
+                "Available": null,
+                "UserId": 11
+            },
+            {
+                "FoodId": 27,
+                "FoodName": "Salata",
+                "FoodExpirationDate": "2021-01-29",
+                "FoodType": "Legume",
+                "FoodQuantity": "7",
+                "Available": null,
+                "UserId": 11
+            },
+            {
+                "FoodId": 50,
+                "FoodName": "Orez",
+                "FoodExpirationDate": "2022-08-10",
+                "FoodType": "Perisabile",
+                "FoodQuantity": "2",
+                "Available": null,
+                "UserId": 11
+            }
+        ],
+        "Friends": [
+            {
+                "FriendsId": 18,
+                "UserFriendId": 14,
+                "UserId": 11
+            },
+            {
+                "FriendsId": 68,
+                "UserFriendId": 20,
+                "UserId": 11
+            }
+        ],
+        "Groups": []
+    },
+    {
+        "UserId": 12,
+        "UserName": "Claudiu",
+        "UserSurname": "Taranu",
+        "UserAge": 21,
+        "UserEmail": "claudiu_taranu@gmail.com",
+        "UserPhone": "0745874097",
+        "UserAdress": "Bucuresti",
+        "UserPass": "1234",
+        "Foods": [
+            {
+                "FoodId": 4,
+                "FoodName": "Lapte",
+                "FoodExpirationDate": "2021-01-19",
+                "FoodType": "Lactate",
+                "FoodQuantity": "3",
+                "Available": null,
+                "UserId": 12
+            },
+            {
+                "FoodId": 18,
+                "FoodName": "Macra",
+                "FoodExpirationDate": "2021-02-17",
+                "FoodType": "Carne de vita",
+                "FoodQuantity": "2",
+                "Available": null,
+                "UserId": 12
+            },
+            {
+                "FoodId": 37,
+                "FoodName": "Ceapa",
+                "FoodExpirationDate": "2021-01-11",
+                "FoodType": "Legume",
+                "FoodQuantity": "2",
+                "Available": null,
+                "UserId": 12
+            },
+            {
+                "FoodId": 49,
+                "FoodName": "Orez",
+                "FoodExpirationDate": "2022-08-10",
+                "FoodType": "Perisabile",
+                "FoodQuantity": "2",
+                "Available": null,
+                "UserId": 12
+            }
+        ],
+        "Friends": [
+            {
+                "FriendsId": 16,
+                "UserFriendId": 14,
+                "UserId": 12
+            },
+            {
+                "FriendsId": 46,
+                "UserFriendId": 17,
+                "UserId": 12
+            },
+            {
+                "FriendsId": 52,
+                "UserFriendId": 18,
+                "UserId": 12
+            },
+            {
+                "FriendsId": 54,
+                "UserFriendId": 19,
+                "UserId": 12
+            },
+            {
+                "FriendsId": 64,
+                "UserFriendId": 20,
+                "UserId": 12
+            }
+        ],
+        "Groups": []
+    },
+    {
+        "UserId": 13,
+        "UserName": "Raluca",
+        "UserSurname": "Munteanu",
+        "UserAge": 29,
+        "UserEmail": "ralu_mun@gmail.com",
+        "UserPhone": "0744764097",
+        "UserAdress": "Bran",
+        "UserPass": "1234",
+        "Foods": [
+            {
+                "FoodId": 20,
+                "FoodName": "Cotlet",
+                "FoodExpirationDate": "2021-02-17",
+                "FoodType": "Carne de porc",
+                "FoodQuantity": "1",
+                "Available": null,
+                "UserId": 13
+            }
+        ],
+        "Friends": [],
+        "Groups": []
+    },
+    {
+        "UserId": 14,
+        "UserName": "Ruxandra",
+        "UserSurname": "Hanu",
+        "UserAge": 37,
+        "UserEmail": "hanuruxy@gmail.com",
+        "UserPhone": "0745037338",
+        "UserAdress": "Brasov",
+        "UserPass": "1234",
+        "Foods": [
+            {
+                "FoodId": 6,
+                "FoodName": "Lapte",
+                "FoodExpirationDate": "2021-01-19",
+                "FoodType": "Lactate",
+                "FoodQuantity": "3",
+                "Available": null,
+                "UserId": 14
+            },
+            {
+                "FoodId": 32,
+                "FoodName": "Castraveti",
+                "FoodExpirationDate": "2021-01-29",
+                "FoodType": "Legume",
+                "FoodQuantity": "5",
+                "Available": null,
+                "UserId": 14
+            }
+        ],
+        "Friends": [
+            {
+                "FriendsId": 17,
+                "UserFriendId": 12,
+                "UserId": 14
+            },
+            {
+                "FriendsId": 19,
+                "UserFriendId": 11,
+                "UserId": 14
+            },
+            {
+                "FriendsId": 21,
+                "UserFriendId": 10,
+                "UserId": 14
+            },
+            {
+                "FriendsId": 23,
+                "UserFriendId": 19,
+                "UserId": 14
+            },
+            {
+                "FriendsId": 34,
+                "UserFriendId": 16,
+                "UserId": 14
+            }
+        ],
+        "Groups": []
+    },
+    {
+        "UserId": 15,
+        "UserName": "Andrei",
+        "UserSurname": "Crudu",
+        "UserAge": 47,
+        "UserEmail": "andrei25@gmail.com",
+        "UserPhone": "0745037342",
+        "UserAdress": "Maramures",
+        "UserPass": "1234",
+        "Foods": [
+            {
+                "FoodId": 31,
+                "FoodName": "Castraveti",
+                "FoodExpirationDate": "2021-01-29",
+                "FoodType": "Legume",
+                "FoodQuantity": "5",
+                "Available": null,
+                "UserId": 15
+            },
+            {
+                "FoodId": 39,
+                "FoodName": "Ceapa",
+                "FoodExpirationDate": "2021-01-11",
+                "FoodType": "Legume",
+                "FoodQuantity": "2",
+                "Available": null,
+                "UserId": 15
+            },
+            {
+                "FoodId": 44,
+                "FoodName": "Oua",
+                "FoodExpirationDate": "2021-03-14",
+                "FoodType": "Oua",
+                "FoodQuantity": "3",
+                "Available": null,
+                "UserId": 15
+            },
+            {
+                "FoodId": 53,
+                "FoodName": "Faina",
+                "FoodExpirationDate": "2023-07-10",
+                "FoodType": "Perisabile",
+                "FoodQuantity": "2",
+                "Available": null,
+                "UserId": 15
+            }
+        ],
+        "Friends": [
+            {
+                "FriendsId": 25,
+                "UserFriendId": 19,
+                "UserId": 15
+            },
+            {
+                "FriendsId": 27,
+                "UserFriendId": 2,
+                "UserId": 15
+            },
+            {
+                "FriendsId": 29,
+                "UserFriendId": 5,
+                "UserId": 15
+            },
+            {
+                "FriendsId": 31,
+                "UserFriendId": 18,
+                "UserId": 15
+            }
+        ],
+        "Groups": []
+    },
+    {
+        "UserId": 16,
+        "UserName": "Luca",
+        "UserSurname": "Sava",
+        "UserAge": 27,
+        "UserEmail": "savaluca@gmail.com",
+        "UserPhone": "0745452342",
+        "UserAdress": "Cluj-Napoca",
+        "UserPass": "1234",
+        "Foods": [
+            {
+                "FoodId": 21,
+                "FoodName": "Cotlet",
+                "FoodExpirationDate": "2021-02-17",
+                "FoodType": "Carne de porc",
+                "FoodQuantity": "1",
+                "Available": null,
+                "UserId": 16
+            },
+            {
+                "FoodId": 41,
+                "FoodName": "Iaurt",
+                "FoodExpirationDate": "2021-03-14",
+                "FoodType": "Lactate",
+                "FoodQuantity": "5",
+                "Available": null,
+                "UserId": 16
+            },
+            {
+                "FoodId": 51,
+                "FoodName": "Orez",
+                "FoodExpirationDate": "2022-08-10",
+                "FoodType": "Perisabile",
+                "FoodQuantity": "4",
+                "Available": null,
+                "UserId": 16
+            }
+        ],
+        "Friends": [
+            {
+                "FriendsId": 13,
+                "UserFriendId": 5,
+                "UserId": 16
+            },
+            {
+                "FriendsId": 33,
+                "UserFriendId": 2,
+                "UserId": 16
+            },
+            {
+                "FriendsId": 35,
+                "UserFriendId": 14,
+                "UserId": 16
+            },
+            {
+                "FriendsId": 37,
+                "UserFriendId": 17,
+                "UserId": 16
+            },
+            {
+                "FriendsId": 39,
+                "UserFriendId": 8,
+                "UserId": 16
+            },
+            {
+                "FriendsId": 70,
+                "UserFriendId": 20,
+                "UserId": 16
+            }
+        ],
+        "Groups": []
+    },
+    {
+        "UserId": 17,
+        "UserName": "Catrina",
+        "UserSurname": "Vadloska",
+        "UserAge": 44,
+        "UserEmail": "KatrinaVlada@gmail.com",
+        "UserPhone": "0749553765",
+        "UserAdress": "Iasi",
+        "UserPass": "1234",
+        "Foods": [
+            {
+                "FoodId": 13,
+                "FoodName": "Lapte Sana",
+                "FoodExpirationDate": "2021-02-17",
+                "FoodType": "Lactate",
+                "FoodQuantity": "3",
+                "Available": null,
+                "UserId": 17
+            },
+            {
+                "FoodId": 28,
+                "FoodName": "Salata",
+                "FoodExpirationDate": "2021-01-29",
+                "FoodType": "Legume",
+                "FoodQuantity": "7",
+                "Available": null,
+                "UserId": 17
+            },
+            {
+                "FoodId": 43,
+                "FoodName": "Oua",
+                "FoodExpirationDate": "2021-03-14",
+                "FoodType": "Oua",
+                "FoodQuantity": "3",
+                "Available": null,
+                "UserId": 17
+            },
+            {
+                "FoodId": 52,
+                "FoodName": "Faina",
+                "FoodExpirationDate": "2023-07-10",
+                "FoodType": "Perisabile",
+                "FoodQuantity": "2",
+                "Available": null,
+                "UserId": 17
+            },
+            {
+                "FoodId": 60,
+                "FoodName": "Zacusca",
+                "FoodExpirationDate": "2025-07-10",
+                "FoodType": "Conserve",
+                "FoodQuantity": "7",
+                "Available": null,
+                "UserId": 17
+            }
+        ],
+        "Friends": [
+            {
+                "FriendsId": 36,
+                "UserFriendId": 16,
+                "UserId": 17
+            },
+            {
+                "FriendsId": 41,
+                "UserFriendId": 8,
+                "UserId": 17
+            },
+            {
+                "FriendsId": 43,
+                "UserFriendId": 19,
+                "UserId": 17
+            },
+            {
+                "FriendsId": 45,
+                "UserFriendId": 6,
+                "UserId": 17
+            },
+            {
+                "FriendsId": 47,
+                "UserFriendId": 12,
+                "UserId": 17
+            }
+        ],
+        "Groups": []
+    },
+    {
+        "UserId": 18,
+        "UserName": "Sabrina",
+        "UserSurname": "Ionescu",
+        "UserAge": 34,
+        "UserEmail": "Ionescusabrina_33a@gmail.com",
+        "UserPhone": "0747652996",
+        "UserAdress": "Timisoara",
+        "UserPass": "1234",
+        "Foods": [
+            {
+                "FoodId": 29,
+                "FoodName": "Castraveti",
+                "FoodExpirationDate": "2021-01-29",
+                "FoodType": "Legume",
+                "FoodQuantity": "5",
+                "Available": null,
+                "UserId": 18
+            },
+            {
+                "FoodId": 40,
+                "FoodName": "Iaurt",
+                "FoodExpirationDate": "2021-03-14",
+                "FoodType": "Lactate",
+                "FoodQuantity": "2",
+                "Available": null,
+                "UserId": 18
+            },
+            {
+                "FoodId": 45,
+                "FoodName": "Oua",
+                "FoodExpirationDate": "2021-03-14",
+                "FoodType": "Oua",
+                "FoodQuantity": "10",
+                "Available": null,
+                "UserId": 18
+            }
+        ],
+        "Friends": [
+            {
+                "FriendsId": 30,
+                "UserFriendId": 15,
+                "UserId": 18
+            },
+            {
+                "FriendsId": 49,
+                "UserFriendId": 3,
+                "UserId": 18
+            },
+            {
+                "FriendsId": 51,
+                "UserFriendId": 7,
+                "UserId": 18
+            },
+            {
+                "FriendsId": 53,
+                "UserFriendId": 12,
+                "UserId": 18
+            }
+        ],
+        "Groups": [
+            {
+                "GroupId": 4,
+                "CreatorId": 18,
+                "GroupDescription": "Carmivori"
+            }
+        ]
+    },
+    {
+        "UserId": 19,
+        "UserName": "Valeriu",
+        "UserSurname": "Ion",
+        "UserAge": 70,
+        "UserEmail": "valyvaly_33a@gmail.com",
+        "UserPhone": "0747633596",
+        "UserAdress": "Cluj-Napoca",
+        "UserPass": "1234",
+        "Foods": [
+            {
+                "FoodId": 14,
+                "FoodName": "Piept de pui",
+                "FoodExpirationDate": "2021-02-17",
+                "FoodType": "Carne de pui",
+                "FoodQuantity": "8",
+                "Available": null,
+                "UserId": 19
+            },
+            {
+                "FoodId": 46,
+                "FoodName": "Oua",
+                "FoodExpirationDate": "2021-03-14",
+                "FoodType": "Oua",
+                "FoodQuantity": "10",
+                "Available": null,
+                "UserId": 19
+            }
+        ],
+        "Friends": [
+            {
+                "FriendsId": 22,
+                "UserFriendId": 14,
+                "UserId": 19
+            },
+            {
+                "FriendsId": 24,
+                "UserFriendId": 15,
+                "UserId": 19
+            },
+            {
+                "FriendsId": 42,
+                "UserFriendId": 17,
+                "UserId": 19
+            },
+            {
+                "FriendsId": 55,
+                "UserFriendId": 12,
+                "UserId": 19
+            },
+            {
+                "FriendsId": 57,
+                "UserFriendId": 7,
+                "UserId": 19
+            },
+            {
+                "FriendsId": 59,
+                "UserFriendId": 6,
+                "UserId": 19
+            },
+            {
+                "FriendsId": 61,
+                "UserFriendId": 8,
+                "UserId": 19
+            }
+        ],
+        "Groups": []
+    },
+    {
+        "UserId": 20,
+        "UserName": "Cosmin",
+        "UserSurname": "Popa",
+        "UserAge": 18,
+        "UserEmail": "popacosmin@gmail.com",
+        "UserPhone": "0746999555",
+        "UserAdress": "Iasi",
+        "UserPass": "1234",
+        "Foods": [
+            {
+                "FoodId": 5,
+                "FoodName": "Lapte",
+                "FoodExpirationDate": "2021-01-19",
+                "FoodType": "Lactate",
+                "FoodQuantity": "3",
+                "Available": null,
+                "UserId": 20
+            },
+            {
+                "FoodId": 47,
+                "FoodName": "Oua",
+                "FoodExpirationDate": "2021-03-14",
+                "FoodType": "Oua",
+                "FoodQuantity": "15",
+                "Available": null,
+                "UserId": 20
+            },
+            {
+                "FoodId": 48,
+                "FoodName": "Orez",
+                "FoodExpirationDate": "2022-08-10",
+                "FoodType": "Perisabile",
+                "FoodQuantity": "2",
+                "Available": null,
+                "UserId": 20
+            }
+        ],
+        "Friends": [
+            {
+                "FriendsId": 63,
+                "UserFriendId": 8,
+                "UserId": 20
+            },
+            {
+                "FriendsId": 65,
+                "UserFriendId": 12,
+                "UserId": 20
+            },
+            {
+                "FriendsId": 67,
+                "UserFriendId": 10,
+                "UserId": 20
+            },
+            {
+                "FriendsId": 69,
+                "UserFriendId": 11,
+                "UserId": 20
+            },
+            {
+                "FriendsId": 71,
+                "UserFriendId": 16,
+                "UserId": 20
+            }
+        ],
+        "Groups": [
+            {
+                "GroupId": 6,
+                "CreatorId": 20,
+                "GroupDescription": "Lactofili"
+            }
+        ]
+    }
+]

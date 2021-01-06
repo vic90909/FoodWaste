@@ -1,0 +1,92 @@
+{
+    "UserName":"Mitoi",
+    "UserSurname":"Victor",
+    "UserAge":21,
+    "UserEmail":"victor.mitoi@gmail.com",
+    "UserPhone":"0745175007",
+    "UserAdress":"Pitesti",
+    "UserPass":"1234"    
+}
+
+{
+    "UserName":"Moraru",
+    "UserSurname":"Roberta",
+    "UserAge":21,
+    "UserEmail":"roberta.moraru@gmail.com",
+    "UserPhone":"0765996605",
+    "UserAdress":"Valcea",
+    "UserPass":"1234"    
+}
+
+
+
+{
+    "UserName":"Marcel",
+    "UserSurname":"Popescu",
+    "UserAge":77,
+    "UserEmail":"Calea Bucuresti8",
+    "UserPhone":"07452222222",
+    "UserAdress":"marcelpopescu@foodsavers.com",
+    "Foods":[
+        {
+            "FoodName":"Snitzel",
+            "FoodExpirationDate":"2012-12-12",
+            "FoodType":"RadaRada",
+            "FoodQuantity":"1 Chowder"
+        }
+    ]
+    
+
+
+}
+{
+        "UserName": "Mitoi",
+        "UserSurname": "Victor2",
+        "UserAge": 21,
+        "UserEmail": "victor0.mitoi@gmail.com",
+        "UserPhone": "0745175007",
+        "UserAdress": "Pitesti",
+        "UserPass": "1234",
+        "Foods": [
+            {
+
+                "FoodName": "Carne de vita",
+                "FoodExpirationDate": "2020-12-17",
+                "FoodType": "RadaRada",
+                "FoodQuantity": "1 Chowder",
+                "Available": "true"
+            }
+        ],
+        "Friends": [],
+        "Groups": []
+    }
+
+{
+            "FoodName":"Sarmale",
+            "FoodExpirationDate":"2020-12-20",
+            "FoodType":"CarneDePorc",
+            "FoodQuantity":"10",
+            "Availible":"true",
+            "UserId":1
+}
+
+//Friend
+{
+    "UserFriendId":1,
+    "UserId":4
+}
+
+//Group
+{
+    "CreatorId":4,
+    "GroupDescription":"Ierbivori"
+}
+
+{
+    "GroupId": 1,
+    "CreatorId": 1,
+    "GroupDescription": "Vegetarieni"
+}
+
+
+
