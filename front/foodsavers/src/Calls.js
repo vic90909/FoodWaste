@@ -17,6 +17,15 @@ async function getAll(url){
     }
 }
 
+async function getAllFood(url,id){
+    try{
+        let newUrl = !id ? url : url + "/user/"+id;
+        return(await axios.get(newUrl)).data
+    }catch(e){
+        return e.response.data;
+    }
+}
+
 
 async function getByEmail(url, email=null){
     try{
@@ -53,4 +62,4 @@ async function post(url, item) {
 }
 
 
-export {get,getByEmail,post,getAll,getUserByEmail};
+export {get,getByEmail,post,getAll,getUserByEmail,getAllFood};

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../App.css";
 import { get, getByEmail, post } from "../Calls";
-import { userRoute,foodRoute } from "../ApiRoutes";
+import { userRoute, foodRoute } from "../ApiRoutes";
 
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/
@@ -48,16 +48,26 @@ class RegisterFood extends Component {
   }
 
   saveFood = async () => {
-    this.state.food.UserId=this.props.location.state.userId;
-    
+    this.state.food.UserId = this.props.location.state.userId;
+
     try {
       let res = await post(foodRoute, this.state.food)
         .then((food) => {
-          console.log(food,this.state.food);
-          alert("gg");
+          if (food.message === undefined) {
+            alert("gg");
+            this.props.history.push({
+              pathname: "/main",
+              state: { user: this.state.food.UserId },
+            });
+          } else {
+            alert(food.message);
+            return food.message;
+
+          }
+          console.log(food, this.state.food);
         })
         .catch((e) => {
-          console.log(e);
+          alert(e);
         });
 
       if (res.hasErrors) {
@@ -74,8 +84,7 @@ class RegisterFood extends Component {
 
     if (formValid(this.state)) {
       console.log(this.state.formErrors);
-      this.saveFood();
-      this.props.history.push({pathname:"/main",state:{user:this.state.food.UserId}});
+      var message = this.saveFood();
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
     }
@@ -129,8 +138,8 @@ class RegisterFood extends Component {
     this.props.history.push("/");
   };
 
-  componentDidMount(){
-    console.log(this.props.location.state.userId)
+  componentDidMount() {
+    console.log(this.props.location.state.userId);
   }
 
   render() {
@@ -139,7 +148,7 @@ class RegisterFood extends Component {
     return (
       <div className="wrapper">
         <div className="form-wrapper">
-          <h1>Create Account</h1>
+          <h1>Add Food</h1>
           <form
             className="formRegister"
             onSubmit={this.handleSubmit}
@@ -159,7 +168,7 @@ class RegisterFood extends Component {
                 <span className="errorMessage">{formErrors.FoodName}</span>
               )}
             </div>
-            <div className="lastName">
+            {/* <div className="lastName">
               <label htmlFor="FoodType">Food Type</label>
               <input
                 className={formErrors.FoodType.length > 0 ? "error" : null}
@@ -170,6 +179,35 @@ class RegisterFood extends Component {
                 noValidate
                 onChange={this.handleChange}
               />
+              {formErrors.FoodType.length > 0 && (
+                <span className="errorMessage">{formErrors.FoodType}</span>
+              )}
+            </div> */}
+            <div className="lastName">
+              <label htmlFor="FoodType">Food Type</label>
+              <select
+                className={formErrors.FoodType.length > 0 ? "error" : null}
+                id="FoodType"
+                placeholder="Food Type"
+                type="text"
+                name="FoodType"
+                noValidate
+                onChange={this.handleChange}
+              >
+                <option>Branzeturi</option>
+                <option>Lactate</option>
+                <option>Alcool</option>
+                <option>Lichide</option>
+                <option>Carne de Porc</option>
+                <option>Carne de Vita</option>
+                <option>Carne de Pui</option>
+                <option>Carne de Miel</option>
+                <option>Fructe</option>
+                <option>Legume</option>
+                <option>Peste</option>
+                <option>Mancare gatita</option>
+                <option>Desert</option>
+              </select>
               {formErrors.FoodType.length > 0 && (
                 <span className="errorMessage">{formErrors.FoodType}</span>
               )}
@@ -188,9 +226,11 @@ class RegisterFood extends Component {
                 <span className="errorMessage">{formErrors.FoodQuantity}</span>
               )}
             </div>
-            
+
             <div className="password">
-              <label htmlFor="FoodExpirationDate">Food Expiration Date (year-month-date)</label>
+              <label htmlFor="FoodExpirationDate">
+                Food Expiration Date (year-month-date)
+              </label>
               <input
                 className={
                   formErrors.FoodExpirationDate.length > 0 ? "error" : null
@@ -208,8 +248,7 @@ class RegisterFood extends Component {
               )}
             </div>
             <div className="createAccount">
-              <button type="submit">Create Account</button>
-              <small onClick={this.haveAccount}>Already Have an Account?</small>
+              <button type="submit">Add it</button>
             </div>
           </form>
         </div>

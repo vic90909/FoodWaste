@@ -25,6 +25,53 @@
 }
 
 
+.collapse{
+  margin-left: 25px;
+  padding: 10px;
+}
+.collapse:active {
+  background-color: #555;
+}
+
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+.door{
+  border-radius: 30px;
+  position: absolute;
+  left: 20%;
+  top: 10%;
+  border: 3px solid red;
+  width: 300px;
+  height: 800px;
+}
+
+.fridge{
+  border-radius: 30px;
+  position: absolute;
+  right: 20%;
+  top: 10%;
+  border: 3px solid red;
+  width: 300px;
+  height: 300px;
+  overflow: auto;
+}
+
+
+
+#addFood{
+  position: absolute;
+  left: 45%;
+  top: 0%;
+  width: 10%;
+  height: 30px;
+
+}
 
 
 .formLogin{
