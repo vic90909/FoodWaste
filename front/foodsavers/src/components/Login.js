@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getByEmail,getUserByEmail } from "../Calls";
+import { getByEmail, getUserByEmail } from "../Calls";
 import { userRoute } from "../ApiRoutes";
 import "../App.css";
 export default class Login extends Component {
@@ -15,9 +15,12 @@ export default class Login extends Component {
     const pass = document.getElementById("ipPass");
     let password;
     password = await getByEmail(userRoute, email.value);
-    const user=await getUserByEmail(userRoute,email.value);
-    if (password == pass.value) {
-      this.props.history.push({pathname:"/main",state:{user:user.UserId}});
+    const user = await getUserByEmail(userRoute, email.value);
+    if (password === parseFloat(pass.value)) {
+      this.props.history.push({
+        pathname: "/main",
+        state: { user: user.UserId },
+      });
     } else {
       alert("Email sau parola incorecte");
     }
@@ -37,20 +40,17 @@ export default class Login extends Component {
 
           <button onClick={this.LoginClick}>Log In</button>
           <button onClick={this.RegisterClick}>Register</button>
-
         </div>
-          <div className="footer">
-            <p>
-              
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Helping people in need while
-              reducing food waste makes you a hero! <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Food Savers is an innovative app
-              that provides you the chance to recycle food and donate it to
-              people that need it the most! <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You are not a member yet? Make sure
-              you register and than the fun can begin!
-            </p>
-          
+        <div className="footer">
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Helping people in need while reducing
+            food waste makes you a hero! <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Food Savers is an innovative app that
+            provides you the chance to recycle food and donate it to people that
+            need it the most! <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You are not a member yet? Make sure
+            you register and than the fun can begin!
+          </p>
         </div>
       </div>
     );

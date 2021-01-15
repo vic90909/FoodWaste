@@ -26,6 +26,7 @@ export default class App extends Component {
     return (
       <div className="Appa">
       <div className="formWrapper">
+        <header className="all">
       <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Login} />
@@ -35,6 +36,7 @@ export default class App extends Component {
         <Route path="/" render ={() => <div>404</div>} />
       </Switch>
     </BrowserRouter>
+    </header>
     </div>
     </div>
     )

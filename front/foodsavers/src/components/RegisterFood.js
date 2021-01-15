@@ -168,6 +168,7 @@ class RegisterFood extends Component {
                 <span className="errorMessage">{formErrors.FoodName}</span>
               )}
             </div>
+            
             {/* <div className="lastName">
               <label htmlFor="FoodType">Food Type</label>
               <input
@@ -183,6 +184,7 @@ class RegisterFood extends Component {
                 <span className="errorMessage">{formErrors.FoodType}</span>
               )}
             </div> */}
+
             <div className="lastName">
               <label htmlFor="FoodType">Food Type</label>
               <select

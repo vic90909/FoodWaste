@@ -1,0 +1,35 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: rgba(0, 0, 0, 0.6); */
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+
+}
+.modal input {
+    padding: 10px 5px;
+}
+
+.modal-main {
+    position: fixed;
+    background: #282c34;
+    width: 15%;
+    height: 400px;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    padding-bottom: 20px;
+    overflow: auto;
+}
+
+.display-block {
+    display: block;
+}
+
+.display-none {
+    display: none;
+}

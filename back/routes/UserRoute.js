@@ -27,6 +27,7 @@ router.route("/user").post(async (req, res) => {
     res.json(await resetUsers());
   });
 
+  
   router.route("/user/email/:mail").get(async(req,res)=>{
     res.json(await getUserByEmail(req.params.mail,res));
   })

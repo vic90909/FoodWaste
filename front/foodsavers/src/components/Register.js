@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Register.css";
-import {get,getByEmail,post} from '../Calls'
-import {userRoute} from '../ApiRoutes'
+import { get, getByEmail, post } from "../Calls";
+import { userRoute } from "../ApiRoutes";
 
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/
@@ -28,23 +28,7 @@ class Register extends Component {
     super(props);
 
     this.state = {
-        user:{
-            UserName: "",
-            UserSurname: "",
-            UserEmail: "",
-            UserPass: "",
-            UserAge: 0,
-            UserPhone: "",
-            UserAdress: "",
-        },
-    //   firstName: null,
-    //   lastName: null,
-    //   email: null,
-    //   address: null,
-    //   phone: null,
-    //   age: null,
-    //   password: null,
-      formErrors: {
+      user: {
         UserName: "",
         UserSurname: "",
         UserEmail: "",
@@ -53,44 +37,34 @@ class Register extends Component {
         UserPhone: "",
         UserAdress: "",
       },
+      formErrors: {
+        UserName: "",
+        UserSurname: "",
+        UserEmail: "",
+        UserPass: "",
+        UserAge: 0,
+        UserAgeError:"",
+        UserPhone: "",
+        UserAdress: "",
+      },
     };
   }
 
-  saveUser =async()=>{
-      try{
-        
-        let res = await post(userRoute, this.state.user).then(user=>{
-            alert("gg");
-        }).catch(e=>{
-            console.log(e);
-        });
-
-        if (res.hasErrors){
-            alert(res.message)
-            return;
-        }
-      }catch(e){
-          console.log(e);
+  saveUser = async () => {
+    let res = await post(userRoute, this.state.user).then((user) => {
+      if (user.message === undefined) {
+        alert("gg");
+      } else {
+        alert(user.message);
       }
-    
-  }
+    });
+  };
 
   handleSubmit = (e) => {
     e.preventDefault();
 
     if (formValid(this.state)) {
-    //   console.log(`
-    //     --SUBMITTING--
-    //     First Name: ${this.state.firstName}
-    //     Last Name: ${this.state.lastName}
-    //     Email: ${this.state.email}
-    //     Password: ${this.state.password}
-    //     Address: ${this.state.address}
-    //     Phone: ${this.state.phone}
-    //     Age: ${this.state.age}
-    //   `);
-    console.log(this.state.formErrors);
-      this.saveUser()
+      this.saveUser();
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
     }
@@ -98,42 +72,44 @@ class Register extends Component {
 
   handleChange = (e) => {
     e.preventDefault();
+
     const { name, value } = e.target;
     let formErrors = { ...this.state.formErrors };
-    let newUser = this.state.user;    
-    console.log(e.target.name,e.target.value,newUser);    
+    let newUser = this.state.user;
     newUser[e.target.name] = e.target.value;
-    this.setState({User: newUser});
+    this.setState({ User: newUser });
+
     switch (name) {
-      case "user.UserName":
+      case "UserName":
         formErrors.UserName =
-          value.length < 3 ? "minimum 3 characaters required" : "";
+          value.length < 3 ? "Minimum 3 characaters required" : "";
         break;
-      case "lastName":
+      case "UserSurname":
         formErrors.UserSurname =
-          value.length < 3 ? "minimum 3 characaters required" : "";
+          value.length < 3 ? "Minimum 3 characaters required" : "";
         break;
-      case "email":
+      case "UserEmail":
         formErrors.UserEmail = emailRegex.test(value)
           ? ""
-          : "invalid email address";
+          : "Invalid email address";
         break;
-      case "password":
+      case "UserPass":
         formErrors.UserPass =
-          value.length < 6 ? "minimum 6 characaters required" : "";
+          value.length < 6 ? "Minimum 6 characaters required" : "";
         break;
-      case "age":
-        formErrors.UserAge = value < 18 ? "Minimun 18 years old" : "";
+      case "UserAge":
+        formErrors.UserAgeError = value < 18 ? "Minimun 18 years old" : "";
         break;
-        case "phone":
-            formErrors.UserPhone = value.length < 10 ? "minimum 6 characaters required" : "";
-            break;
-        case "address":
-            formErrors.UserAdress = value.length < 10 ? "minimum 6 characaters required" : "";
-            break;
-        default:
-
+      case "UserPhone":
+        formErrors.UserPhone =
+          value.length < 10 ? "Minimum 10 characaters required" : "";
         break;
+      case "UserAdress":
+        formErrors.UserAdress =
+          value.length < 10 ? "Minimum 10 characaters required" : "";
+        break;
+      default:
+    
     }
 
     this.setState({ formErrors, [name]: value }, () => console.log(this.state));
@@ -144,7 +120,7 @@ class Register extends Component {
   };
 
   render() {
-    const { formErrors } = this.state;
+    const formErrors = this.state.formErrors;
 
     return (
       <div className="wrapper">
@@ -173,7 +149,6 @@ class Register extends Component {
               <label htmlFor="UserSurname">Last Name</label>
               <input
                 className={formErrors.UserSurname.length > 0 ? "error" : null}
-                id="UserSurname"
                 placeholder="Last Name"
                 type="text"
                 name="UserSurname"
@@ -201,15 +176,15 @@ class Register extends Component {
             <div className="password">
               <label htmlFor="UserAge">Age</label>
               <input
-                className={formErrors.UserAge.length > 0 ? "error" : null}
+                className={formErrors.UserAge.length> 0 ? "error" : null}
                 placeholder="Age"
                 type="number"
                 name="UserAge"
                 noValidate
                 onChange={this.handleChange}
               />
-              {formErrors.UserAge.length > 0 && (
-                <span className="errorMessage">{formErrors.UserAge}</span>
+              {formErrors.UserAgeError.length > 0 && (
+                <span className="errorMessage">{formErrors.UserAgeError}</span>
               )}
             </div>
             <div className="password">
@@ -222,7 +197,7 @@ class Register extends Component {
                 noValidate
                 onChange={this.handleChange}
               />
-              {formErrors.UserPass.length > 0 && (
+              {formErrors.UserPhone.length > 0 && (
                 <span className="errorMessage">{formErrors.UserPhone}</span>
               )}
             </div>

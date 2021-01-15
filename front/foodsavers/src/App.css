@@ -1,11 +1,6 @@
 .wrapper{
     background-image: url("./rsz_1planete1.png");
     background-size: 100% 100%;
-    /* background-size: 400% 400%;
-    height: 100%; */
-    /* -webkit-animation: AnimationName 30s ease infinite;
-    -moz-animation: AnimationName 30s ease infinite;
-    animation: AnimationName 30s ease infinite; */
 }
 
 @-webkit-keyframes AnimationName {
@@ -23,7 +18,14 @@
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }
-
+body{
+  -ms-overflow-style: none;
+  background-image: url("./rsz_spatiu.png");
+  color: white;
+}
+::-webkit-scrollbar {
+  display: none;
+}
 
 .collapse{
   margin-left: 25px;
@@ -44,25 +46,43 @@
 .door{
   border-radius: 30px;
   position: absolute;
-  left: 20%;
+  left: 35%;
   top: 10%;
-  border: 3px solid red;
-  width: 300px;
+  border: 3px solid white;
+  width: 15%;
   height: 800px;
+  overflow: auto;
+
 }
 
 .fridge{
   border-radius: 30px;
+  border-left: 15px;
   position: absolute;
-  right: 20%;
+  right: 35%;
   top: 10%;
-  border: 3px solid red;
-  width: 300px;
-  height: 300px;
+  border: 3px solid white;
+  width: 15%;
+  height: 800px;
   overflow: auto;
 }
 
+/* .arctic{
+  position: absolute;
+  margin-left: -300px; 
+  margin-top: -250px;
+ 
+  width: 100%;
+} */
 
+.buttonAddFriend{
+  margin-left:10px;
+  width: 50px;
+}
+
+.main{
+  background-image: url("./rsz_1planete1.png");
+}
 
 #addFood{
   position: absolute;
@@ -88,6 +108,8 @@
   height:94vh;
 }
 
+
+
 input{
   border-radius: 10px;
   width: 40%;
@@ -110,14 +132,19 @@ label{
 
 }
 
+
 .titleLogin{
   
-  position: absolute;
+  position: relative;
   top:10px;
-
+  margin-bottom: 150px;
 
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: xxx-large;
+}
+
+.all{
+  overflow: hidden;
 }
 
 .footer{
@@ -128,24 +155,198 @@ label{
   align-items: center;
   font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 30px;
-  margin: 120px 50px 5px 50px;
+  margin:120px 25% 0px 50px;
   text-align: justify;
   border: 5px solid #92faff;
   border-radius:25px;
   padding: 0 10px 0 10px;
+  animation: footer 1s normal ease-out;
 }
 .form-wrapper {
   width: 400px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   padding: 20px 40px;
   border-radius: 10px;
   box-shadow: 0px 10px 50px #555;
-  background-color: #df7373;
+  background-color: #ac1818;
+  animation: loginForm 1s normal ease-out;
+  position: relative;
+  
+
+}
+@keyframes loginForm {
+  100% {
+      top:0px;
+  }
+  0% {
+      top: -100px;
+  }
 }
 
 
+
+@keyframes footer {
+  100% {
+    bottom:0px;
+  }
+  0% {
+    bottom: -100px;
+  }
+}
+
+.Friendship{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.UserCollaps{
+  background-color: blueviolet;
+  width:300px;
+  border-radius: 15px;
+  margin: 25px 25px;
+
+}
+
+.UserCollapsTrigger{
+  background-color: rgb(226, 43, 43);
+  border-radius: 15px;
+  padding: 15px;
+}
+.UserCollapsInner{
+  background-color: rgb(180, 48, 48);
+  border-radius: 15px;
+  height: 290px;
+  overflow: auto;
+}
+
+
+
+.FriendsCollaps{
+  background-color: blueviolet;
+  width:300px;
+  border-radius: 15px;
+  margin: 25px 25px;
+}
+
+.FriendsCollapsTrigger{
+  background-color: rgb(15, 59, 255);
+  border-radius: 15px;
+  padding: 15px;
+}
+.FriendsCollapsInner{
+  background-color: rgb(48, 57, 180);
+  border-radius: 15px;
+  height: 290px;
+  overflow: auto;
+}
+
+.groupInput{
+  background-color: darkgreen;
+  height: 80px;
+  width: 270px;
+  border-radius: 15px;
+  margin: 25px;
+  font-size: 12px;
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+  padding: 15px;
+}
+
+.addGroup button{
+  width: 35px;
+  height:30px;
+  padding-top: 3px;
+  margin-top: 16px;
+  margin-left:5px;
+}
+
+.addGroup label{
+  color: white !important;
+}
+
+#inputGroup{
+  width: 200px;
+  height:10px;
+  border-radius: 15px;
+  margin: 15px 0 10px 0;
+
+}
+.addGroup{
+  display: flex;
+  flex-direction: row;
+}
+
+.Groups{
+  width: 300px;
+  position: absolute;
+  top: 0px; 
+  right: 0px;
+  background-color: darkgreen;
+  height: 100vh;
+  overflow: auto;
+}
+
+@keyframes sidebaropen{
+  0%{
+    right:-300px;
+  }100%{
+    right:0px;
+  }
+}
+
+@keyframes sidebarclose{
+  0%{
+    right:0px;
+  }100%{
+    right:-300px;
+  }
+}
+
+@keyframes buttonopen{
+  0%{
+    right:50px;
+  }100%{
+    right:350px;
+  }
+}
+
+@keyframes buttonclose{
+  0%{
+    right:350px;
+  }100%{
+    right:50px;
+  }
+}
+
+#groups{
+  position: absolute;
+  right: 350px;
+  width: 70px;
+  height: 10px;
+  top: 0px;
+}
+
+.modalGroups{
+  display: flex;
+  flex-direction: row;
+  
+  margin-left:50px;
+}
+
+.modalGroups button{
+  width: 35px;
+  height:30px;
+  padding-top: 3px;
+  margin: 12px 5px 0 5px;
+  
+}
+
+.modalTop{
+  display: flex;
+  flex-direction: column;
+}
 
 
