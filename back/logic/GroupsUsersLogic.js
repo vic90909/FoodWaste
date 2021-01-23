@@ -19,4 +19,14 @@ async function getAllGroupsUsers(res) {
     return await GroupsUsers.findAll();
   }
 
-export {createGroupUser, getAllGroupsUsers};
+  async function deleteGroupUser(id,res){
+    await GroupsUsers.findOne({
+      where:{GroupsUsersId:id}
+    }).then( async user=>{
+      return await user.destroy()
+    }).catch(err=>{
+      console.log(err)
+    })
+  }
+
+export {createGroupUser, getAllGroupsUsers,deleteGroupUser};

@@ -8,14 +8,9 @@ import Main from './components/Main';
 import RegisterFood from './components/RegisterFood'
 export default class App extends Component {
   componentDidMount =()=>{
-    const element=22
-    axios.get(`http://localhost:8080/api/user/${element}`).then(response=>{
-      console.log(response)
-    })
+    
   }
-
- 
-
+  
   RegisterClick=()=>{
     <Switch>
           <Route exact path="/register" component={Register}/>

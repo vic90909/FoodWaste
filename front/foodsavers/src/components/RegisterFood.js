@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import "../App.css";
-import { get, getByEmail, post } from "../Calls";
-import { userRoute, foodRoute } from "../ApiRoutes";
+import { post } from "../Calls";
+import { foodRoute } from "../ApiRoutes";
 
-const emailRegex = RegExp(
-  /^[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/
-);
 
 const formValid = ({ formErrors, ...rest }) => {
   let valid = true;
@@ -49,12 +46,11 @@ class RegisterFood extends Component {
 
   saveFood = async () => {
     this.state.food.UserId = this.props.location.state.userId;
-
-    try {
+    this.state.food.Available="False";
       let res = await post(foodRoute, this.state.food)
         .then((food) => {
           if (food.message === undefined) {
-            alert("gg");
+            alert("Bravo, ajuti lumea!");
             this.props.history.push({
               pathname: "/main",
               state: { user: this.state.food.UserId },
@@ -62,31 +58,23 @@ class RegisterFood extends Component {
           } else {
             alert(food.message);
             return food.message;
-
           }
           console.log(food, this.state.food);
         })
         .catch((e) => {
           alert(e);
         });
-
-      if (res.hasErrors) {
-        alert(res.message);
-        return;
-      }
-    } catch (e) {
-      console.log(e);
-    }
+      
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
 
     if (formValid(this.state)) {
-      console.log(this.state.formErrors);
-      var message = this.saveFood();
+      //console.log(this.state.formErrors);
+      this.saveFood();
     } else {
-      console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
+      console.error("Unu sau mai multe campuri are erori");
     }
   };
 
@@ -95,37 +83,24 @@ class RegisterFood extends Component {
     const { name, value } = e.target;
     let formErrors = { ...this.state.formErrors };
     let newFood = this.state.food;
-    console.log(e.target.name, e.target.value, newFood);
     newFood[e.target.name] = e.target.value;
     this.setState({ Food: newFood });
     switch (name) {
-      case "user.FoodName":
+      case "FoodName":
         formErrors.FoodName =
-          value.length < 3 ? "minimum 3 characaters required" : "";
+          value.length < 3
+            ? "minimum 3 characaters required"
+            : value.length > 255
+            ? "Food Name too long"
+            : "";
         break;
-      case "lastName":
-        formErrors.FoodType =
-          value.length < 3 ? "minimum 3 characaters required" : "";
-        break;
-      case "email":
-        formErrors.FoodQuantity = emailRegex.test(value)
-          ? ""
-          : "invalid email address";
-        break;
-      case "password":
-        formErrors.UserPass =
-          value.length < 6 ? "minimum 6 characaters required" : "";
-        break;
-      case "age":
-        formErrors.UserId = value < 18 ? "Minimun 18 years old" : "";
-        break;
-      case "phone":
-        formErrors.Available =
-          value.length < 10 ? "minimum 6 characaters required" : "";
-        break;
-      case "address":
-        formErrors.FoodExpirationDate =
-          value.length < 10 ? "minimum 6 characaters required" : "";
+      case "FoodQuantity":
+        formErrors.FoodQuantity =
+          value.length < 3
+            ? "minimum 3 characaters required"
+            : value.length > 255
+            ? "Food Name too long"
+            : "";
         break;
       default:
         break;
@@ -168,7 +143,7 @@ class RegisterFood extends Component {
                 <span className="errorMessage">{formErrors.FoodName}</span>
               )}
             </div>
-            
+
             {/* <div className="lastName">
               <label htmlFor="FoodType">Food Type</label>
               <input
@@ -185,10 +160,10 @@ class RegisterFood extends Component {
               )}
             </div> */}
 
-            <div className="lastName">
+            <div className="selectType">
               <label htmlFor="FoodType">Food Type</label>
               <select
-                className={formErrors.FoodType.length > 0 ? "error" : null}
+                className="select"
                 id="FoodType"
                 placeholder="Food Type"
                 type="text"

@@ -4,7 +4,12 @@ const router= express.Router();
 
 
 router.route("/friends").post(async (req, res) => {
+  try{
     res.json(await createFriends(req.body, res));
+
+  }catch(e){
+    console.log(e);
+  }
   });
   
   router.route("/friends").get(async (req, res) => {

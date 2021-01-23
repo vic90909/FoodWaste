@@ -24,8 +24,6 @@ app.use("/api", Group);
 app.use("/api", GroupsUsers);
 app.use("/api",router);
 
-
-
 // db.authenticate()
 //   .then(() => {
 //     console.log("Connection has been established successfully.");
@@ -61,8 +59,6 @@ router.route("/create").get(async (req, res) => {
     res.status(500).json({ message: "server error" });
   }
 });
-
-
 
 
 let port = process.env.PORT || 8080;

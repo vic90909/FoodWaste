@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import {
   get,
-  getByEmail,
   post,
   getAll,
   getAllFood,
@@ -9,11 +8,16 @@ import {
   deleteFriendship,
   getUserGroups,
   update,
-  deleteSmth
+  deleteSmth,
 } from "../Calls";
+import {
+  FacebookIcon,
+  FacebookShareButton,
+  WhatsappShareButton,
+  WhatsappIcon,
+} from "react-share";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import disableScroll from "disable-scroll";
 import {
   foodRoute,
   userRoute,
@@ -29,9 +33,7 @@ import {
   faUsers,
   faTrash,
   faPlusCircle,
-  faSortNumericUpAlt,
-  faUtensils
-
+  faUtensils,
 } from "@fortawesome/free-solid-svg-icons";
 import Modal from "./Modal.js";
 export default class Main extends Component {
@@ -58,11 +60,12 @@ export default class Main extends Component {
       },
       idAdd: null,
       show: false,
-      show2:false,
-      idGet:null,
+      show2: false,
+      idGet: null,
       sidebarOpen: "inline",
       GroupDescription: null,
-      friendFoods:[],
+      friendFoods: [],
+      dummy: null,
       foodTypes: [
         "Branzeturi",
         "Lactate",
@@ -86,7 +89,7 @@ export default class Main extends Component {
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
     this.createGroup = this.createGroup.bind(this);
-    this.getFriendFood=this.getFriendFood.bind(this);
+    this.getFriendFood = this.getFriendFood.bind(this);
   }
 
   onSetSidebarOpen(open) {
@@ -104,18 +107,15 @@ export default class Main extends Component {
 
   showModal2 = (id) => {
     this.setState({ show2: true, idGet: id });
-   
   };
 
   hideModal2 = () => {
     this.setState({ show2: false });
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log(prevState.users);
-  }
-
-  
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log(prevState.users);
+  // }
 
   async componentDidMount() {
     console.log("begin");
@@ -137,33 +137,28 @@ export default class Main extends Component {
     } catch (e) {
       console.log(e);
     }
-    console.log(this.state.groups);
-    console.log(userr);
 
-    try{
+    try {
       var allUsers = await getAll(userRoute);
 
       var foods = await getAllFood(foodRoute, this.props.location.state.user);
-  
+
       var friendsIds = await getFriendsIds(link, this.state.user.UserId);
-    }catch(e){
+    } catch (e) {
       alert(e);
     }
 
-    
-
     var array = [this.state.user];
 
-    try{
+    try {
       friendsIds.map(async (item) => {
         var hold = await get(userRoute, item.UserFriendId);
         allUsers = allUsers.filter((el) => el.UserId != item.UserFriendId);
         array.push(hold);
       });
-    }catch(e){
+    } catch (e) {
       console.log(e);
     }
-
 
     array = array.filter((el) => el.UserId != this.state.user.UserId);
     allUsers = allUsers.filter((el) => el.UserId != this.state.user.UserId);
@@ -177,9 +172,8 @@ export default class Main extends Component {
 
     for (let arr of allUsers) {
       ok = true;
-      
+
       for (let filter of array) {
-       
         if (arr.UserId === filter.UserId) {
           ok = false;
         }
@@ -198,79 +192,72 @@ export default class Main extends Component {
     var today = new Date();
 
     this.setState({
-      dd: String(today.getDate()).padStart(2, "0"),
-      mm: String(today.getMonth() + 1).padStart(2, "0"),
-      yyyy: today.getFullYear(),
+      dd: parseFloat(String(today.getDate()).padStart(2, "0")),
+      mm: parseFloat(String(today.getMonth() + 1).padStart(2, "0")),
+      yyyy: parseFloat(today.getFullYear()),
     });
 
-    const almost = document.getElementById("almost");
-    const exp = document.getElementById("exp");
-    const little = document.getElementById("little");
-
-    for (let i = 0; i < foods.length; i++) {
-      const li = document.createElement("li");
-
-      li.innerText = foods[i].FoodName;
-      const date = new Date(foods[i].FoodExpirationDate);
-      //var dateString = new Date(date. getTime() - (date. getTimezoneOffset() * 60000 ))
-      var month = date.getUTCMonth() + 1; //months from 1-12
+    this.state.foods.map((item, index) => {
+      const date = new Date(item.FoodExpirationDate);
+      var month = date.getUTCMonth() + 1;
       var day = date.getUTCDate();
       var year = date.getUTCFullYear();
+      var plus = -1;
+      //aceeasi luna
       if (
-        (year == this.state.yyyy &&
-          this.state.mm == month &&
-          day <= this.state.dd) ||
-        year < this.state.yyyy ||
-        (year == this.state.yyyy && month < this.state.mm)
+        year === this.state.yyyy &&
+        month === this.state.mm &&
+        day - this.state.dd <= 7 &&
+        day - this.state.dd >= 1
       ) {
-        toast(`🍕 ${foods[i].FoodName} a expirat deja`);
-      } else {
-        if (
-          year == this.state.yyyy &&
-          month == parseFloat(this.state.mm) &&
-          day - this.state.dd <= 3
-        ) {
-          li.innerText +=
-            " - expira in " + (day - parseFloat(this.state.dd) + 1) + " zile";
-          little.appendChild(li);
-        } else {
-          if (
-            year == this.state.yyyy &&
-            month == this.state.mm &&
-            day - this.state.dd <= 14
-          ) {
-            // li.innerText += " - expira in " + (day - this.state.dd + 1) + " zile";
-            // almost.appendChild(li);
-          }
-        }
+        plus = 0;
+        //luna impara
+      } else if (
+        this.state.mm % 2 === 1 &&
+        year === this.state.yyyy &&
+        month === this.state.mm + 1 &&
+        day + 31 - this.state.dd <= 7 &&
+        day + 31 - this.state.dd >= 1
+      ) {
+        plus = 31;
       }
-
-      // const liFridge = document.createElement("li");
-      // liFridge.innerText =
-      //   foods[i].FoodName + " (" + foods[i].FoodQuantity + ")";
-      // if (foods[i].FoodType === "Branzeturi") {
-      //   cheese.appendChild(liFridge);
-      //   //console.log("Lungime:", cheese.childNodes.length);
-      // } else if (foods[i].FoodType === "Lactate") {
-      //   milks.appendChild(liFridge);
-      // } else if (foods[i].FoodType === "Alcool") {
-      //   alcool.appendChild(liFridge);
-      // } else if (foods[i].FoodType === "Lichide") {
-      //   liquids.appendChild(liFridge);
-      // } else if (foods[i].FoodType === "Carne de Vita") {
-      //   beef.appendChild(liFridge);
-      // } else if (foods[i].FoodType === "Carne de Pui") {
-      //   chick.appendChild(liFridge);
-      // } else if (foods[i].FoodType === "Carne de Miel") {
-      //   lamb.appendChild(liFridge);
-      // } else if (foods[i].FoodType === "Fructe") {
-      //   fruits.appendChild(liFridge);
-      // } else if (foods[i].FoodType === "Legume") {
-      //   vegs.appendChild(liFridge);
-      // } else if (foods[i].FoodType === "Desert") {
-      //   desert.appendChild(liFridge);
-      // }
-    }
+      //luna para, dar nu februarie
+      else if (
+        this.state.mm % 2 === 0 &&
+        this.state.mm !== 2 &&
+        year === this.state.yyyy &&
+        month === this.state.mm + 1 &&
+        day + 30 - this.state.dd <= 7 &&
+        day + 30 - this.state.dd >= 1
+      ) {
+        plus = 30;
+      }
+      //februarie nebisect
+      else if (
+        this.state.mm === 2 &&
+        year % 4 === 1 &&
+        year === this.state.yyyy &&
+        month === this.state.mm + 1 &&
+        day + 28 - this.state.dd <= 7 &&
+        day + 28 - this.state.dd >= 1
+      ) {
+        plus = 28;
+      }
+      //februarie bisect
+      else if (
+        this.state.mm === 2 &&
+        year % 4 === 0 &&
+        year === this.state.yyyy &&
+        month === this.state.mm + 1 &&
+        day + 29 - this.state.dd <= 7 &&
+        day + 29 - this.state.dd >= 1
+      ) {
+        plus = 29;
+      }
+      if (plus !== -1) {
+        toast("Iti expira " + item.FoodName);
+      }
+    });
   }
 
   regFood = () => {
@@ -283,6 +270,14 @@ export default class Main extends Component {
   open = () => {};
 
   close = () => {};
+
+  async deleteGroupUser(id) {
+    try {
+      await deleteSmth(groupUsersRoute, id);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   deleteFriendshipMain = async (url, id1, id2) => {
     await deleteFriendship(url, id1, id2);
@@ -306,12 +301,11 @@ export default class Main extends Component {
     const newUsers = this.state.users.filter((el) => el.UserId != id);
     const friendsNew = this.state.friends;
     friendsNew.push(friendNew);
-    console.log(this.state.users);
+
     this.setState({
       friends: friendsNew,
       users: newUsers,
     });
-    console.log(this.state.users);
   };
 
   async friendAdd(item) {
@@ -320,7 +314,6 @@ export default class Main extends Component {
     friendNew.UserFriendId = item.UserId;
     await post(friendsRoute, friendNew);
     const newFriend = await get(userRoute, friendNew.UserFriendId);
-
     this.delete(item.UserId, newFriend);
   }
 
@@ -333,7 +326,7 @@ export default class Main extends Component {
     await post(groupRoute, group)
       .then((e1) => {
         let newGroups = this.state.groups;
-        newGroups.push(group);
+        newGroups.push(e1);
         this.setState({
           groups: newGroups,
         });
@@ -343,37 +336,43 @@ export default class Main extends Component {
       });
   }
 
-  async getFriendFood(id){
-    
-    try{
-      let foodFriend = await getAllFood(foodRoute,id);
-      console.log(foodFriend);
+  async getFriendFood(id) {
+    try {
+      let foodFriend = await getAllFood(foodRoute, id);
+
       this.setState({
-        friendFoods:foodFriend,
-      })
-    }catch(e){
+        friendFoods: foodFriend,
+      });
+    } catch (e) {
       console.log(e);
     }
   }
 
-  async takeFood(id){
-    try{
-      let food=await get(foodRoute,id);
-      food.UserId=this.state.user.UserId;
+  async takeFood(id) {
+    try {
+      let food = await get(foodRoute, id);
+      food.UserId = this.state.user.UserId;
+      food.Available = "False";
+      let f = await deleteSmth(foodRoute, id);
 
-      let f=await deleteSmth(foodRoute,id);
-
-      let newFoods=this.state.foods;
-      await post(foodRoute,food);
+      let newFoods = this.state.foods;
+      await post(foodRoute, food);
       newFoods.push(food);
-      var newFriendsFood=this.state.friendFoods.filter(el=>el.FoodId!=id);
+      var newFriendsFood = this.state.friendFoods.filter(
+        (el) => el.FoodId != id
+      );
       this.setState({
-        foods:newFoods,
-        friendFoods:newFriendsFood
-      })
-    }catch(e){
+        foods: newFoods,
+        friendFoods: newFriendsFood,
+      });
+    } catch (e) {
       console.log(e);
     }
+  }
+
+  returnFoodName(foodName, av) {
+    if (av === true) return <p>{foodName}</p>;
+    else return null;
   }
 
   render() {
@@ -392,14 +391,10 @@ export default class Main extends Component {
               <ul>
                 {this.state.users.map((item, index) => {
                   let obj = false;
-
                   this.state.friends.find((el) => {
                     if (el.UserId == item.UserId) obj = true;
+                    return null;
                   });
-
-                  // console.log("obj", obj);
-                  // console.log(this.state.users);
-
                   if (obj != true)
                     return (
                       <li className="liAddFriend" key={index}>
@@ -414,6 +409,7 @@ export default class Main extends Component {
                         {item.UserName + " " + item.UserSurname}{" "}
                       </li>
                     );
+                  else return 0;
                 })}
               </ul>
             </Collapsible>
@@ -432,6 +428,9 @@ export default class Main extends Component {
                 {this.state.friends.map((item) => {
                   return (
                     <li key={item.UserId}>
+                      {item.UserName + " " + item.UserSurname}
+                      {"\n"}
+                      <br />
                       <button
                         className="buttonAddFriend"
                         onClick={() => {
@@ -461,7 +460,6 @@ export default class Main extends Component {
                       >
                         <FontAwesomeIcon icon={faUtensils} />
                       </button>{" "}
-                      {item.UserName + " " + item.UserSurname}{" "}
                     </li>
                   );
                 })}
@@ -470,7 +468,7 @@ export default class Main extends Component {
           </div>
           <div className="groupInput">
             <div>
-              <label style={{color:"white"}}>Add a new group</label>
+              <label style={{ color: "white" }}>Add a new group</label>
             </div>
             <div className="addGroup">
               <div>
@@ -499,273 +497,255 @@ export default class Main extends Component {
         </div>
 
         <div className="arctic">
-        <div className="door">
-          <Collapsible trigger="Aproape Expirate" triggerTagName="ul">
-            <ul id="almost">
-              {this.state.foods.map((item, index) => {
-                const date = new Date(item.FoodExpirationDate);
-                var month = date.getUTCMonth() + 1;
-                var day = date.getUTCDate();
-                var year = date.getUTCFullYear();
-                if (
-                  year == this.state.yyyy &&
-                  month == this.state.mm &&
-                  day - this.state.dd <= 14 &&
-                  day - this.state.dd > 3
-                )
-                  return (
-                    <li key={index}>
-                      {" "}
-                      {item.FoodName +
-                        " - expira in " +
-                        (day - this.state.dd + 1) +
-                        " zile"}{" "}
-                    </li>
-                  );
-                else return;
-              })}
-            </ul>
-          </Collapsible>
-          <Collapsible trigger="Expirate" triggerTagName="ul">
-            <ul id="exp">
-              {this.state.foods.map((item, index) => {
-                const date = new Date(item.FoodExpirationDate);
-                var month = date.getUTCMonth() + 1;
-                var day = date.getUTCDate();
-                var year = date.getUTCFullYear();
+          <div className="door">
+            <Collapsible
+              trigger={
+                <i style={{ fontSize: "20px" }}>
+                  Expira in mai putin de o luna
+                </i>
+              }
+              triggerTagName="ul"
+            >
+              <ul id="almost">
+                {this.state.foods.map((item, index) => {
+                  const date = new Date(item.FoodExpirationDate);
+                  var month = parseFloat(date.getUTCMonth()) + 1;
+                  var day = parseFloat(date.getUTCDate());
+                  var year = parseFloat(date.getUTCFullYear());
+                  var plus = -1;
+                  //aceeasi luna
+                  if (
+                    year === this.state.yyyy &&
+                    month === this.state.mm &&
+                    day - this.state.dd <= 31 &&
+                    day - this.state.dd > 7
+                  ) {
+                    plus = 0;
+                    //luna impara
+                  } else if (
+                    this.state.mm % 2 === 1 &&
+                    year === this.state.yyyy &&
+                    month === this.state.mm + 1 &&
+                    day + 31 - this.state.dd <= 31 &&
+                    day + 31 - this.state.dd > 7
+                  ) {
+                    plus = 31;
+                  }
+                  //luna para, dar nu februarie
+                  else if (
+                    this.state.mm % 2 === 0 &&
+                    this.state.mm !== 2 &&
+                    year === this.state.yyyy &&
+                    month === this.state.mm + 1 &&
+                    day + 30 - this.state.dd <= 31 &&
+                    day + 30 - this.state.dd > 7
+                  ) {
+                    plus = 31;
+                  }
+                  //februarie nebisect
+                  else if (
+                    this.state.mm === 2 &&
+                    year % 4 === 1 &&
+                    year === this.state.yyyy &&
+                    month === this.state.mm + 1 &&
+                    day + 28 - this.state.dd <= 31 &&
+                    day + 28 - this.state.dd > 7
+                  ) {
+                    plus = 28;
+                  }
+                  //februarie bisect
+                  else if (
+                    this.state.mm === 2 &&
+                    year % 4 === 0 &&
+                    year === this.state.yyyy &&
+                    month === this.state.mm + 1 &&
+                    day + 29 - this.state.dd <= 31 &&
+                    day + 29 - this.state.dd > 7
+                  ) {
+                    plus = 29;
+                  }
+                  if (plus !== -1)
+                    return (
+                      <li style={{ marginRight: "10px " }} key={index}>
+                        {" "}
+                        {item.FoodName +
+                          " - expira in " +
+                          (day + plus - this.state.dd) +
+                          " zile"}{" "}
+                      </li>
+                    );
+                  else return null;
+                })}
+              </ul>
+            </Collapsible>
+            <Collapsible
+              trigger={<i style={{ fontSize: "20px" }}>Expirate</i>}
+              triggerTagName="ul"
+            >
+              <ul id="exp">
+                {this.state.foods.map((item, index) => {
+                  const date = new Date(item.FoodExpirationDate);
+                  var month = date.getUTCMonth() + 1;
+                  var day = date.getUTCDate();
+                  var year = date.getUTCFullYear();
 
-                if (
-                  (year == this.state.yyyy &&
-                    this.state.mm == month &&
-                    day <= this.state.dd) ||
-                  year < this.state.yyyy ||
-                  (year == this.state.yyyy && month < this.state.mm)
-                ) {
-                  return (
-                    <li key={index}> {item.FoodName + " a expirat deja"} </li>
-                  );
-                } else return;
-              })}
-            </ul>
-          </Collapsible>
-          <Collapsible
-            trigger="Foarte putin pana la expirare"
-            triggerTagName="ul"
-          >
-            <ul id="little"></ul>
-          </Collapsible>
-        </div>
-        <div className="fridge">
-          {this.state.foodTypes.map((item) => {
-            return (
-              <Collapsible trigger={item} triggerTagName="ul">
-                <ul>
-                  {this.state.foods.map((item2) => {
-                    if (item2.FoodType == item) {
-                      var styleLi={
-                        color:""
-                      };
-                      if(item2.Available=="True"){
-                        styleLi.color="red"
-                      }else{
-                        styleLi.color="blue"
+                  if (
+                    (year === this.state.yyyy &&
+                      this.state.mm === month &&
+                      day <= this.state.dd) ||
+                    year < this.state.yyyy ||
+                    (year === this.state.yyyy && month < this.state.mm)
+                  ) {
+                    return (
+                      <li key={index}> {item.FoodName + " a expirat deja"} </li>
+                    );
+                  } else return null;
+                })}
+              </ul>
+            </Collapsible>
+            <Collapsible
+              trigger={
+                <i style={{ fontSize: "20px" }}>Mai putin de o saptamana</i>
+              }
+              triggerTagName="ul"
+            >
+              <ul id="little">
+                {this.state.foods.map((item, index) => {
+                  const date = new Date(item.FoodExpirationDate);
+                  var month = date.getUTCMonth() + 1;
+                  var day = date.getUTCDate();
+                  var year = date.getUTCFullYear();
+                  var plus = -1;
+                  //aceeasi luna
+                  if (
+                    year === this.state.yyyy &&
+                    month === this.state.mm &&
+                    day - this.state.dd <= 7 &&
+                    day - this.state.dd >= 1
+                  ) {
+                    plus = 0;
+                    //luna impara
+                  } else if (
+                    this.state.mm % 2 === 1 &&
+                    year === this.state.yyyy &&
+                    month === this.state.mm + 1 &&
+                    day + 31 - this.state.dd <= 7 &&
+                    day + 31 - this.state.dd >= 1
+                  ) {
+                    plus = 31;
+                  }
+                  //luna para, dar nu februarie
+                  else if (
+                    this.state.mm % 2 === 0 &&
+                    this.state.mm !== 2 &&
+                    year === this.state.yyyy &&
+                    month === this.state.mm + 1 &&
+                    day + 30 - this.state.dd <= 7 &&
+                    day + 30 - this.state.dd >= 1
+                  ) {
+                    plus = 30;
+                  }
+                  //februarie nebisect
+                  else if (
+                    this.state.mm === 2 &&
+                    year % 4 === 1 &&
+                    year === this.state.yyyy &&
+                    month === this.state.mm + 1 &&
+                    day + 28 - this.state.dd <= 7 &&
+                    day + 28 - this.state.dd >= 1
+                  ) {
+                    plus = 28;
+                  }
+                  //februarie bisect
+                  else if (
+                    this.state.mm === 2 &&
+                    year % 4 === 0 &&
+                    year === this.state.yyyy &&
+                    month === this.state.mm + 1 &&
+                    day + 29 - this.state.dd <= 7 &&
+                    day + 29 - this.state.dd >= 1
+                  ) {
+                    plus = 29;
+                  }
+                  if (plus !== -1) {
+                    //toast("Iti expira "+item.FoodName)
+                    return (
+                      <li style={{ marginRight: "10px " }} key={index}>
+                        {" "}
+                        {item.FoodName +
+                          " - expira in " +
+                          (day + plus - this.state.dd) +
+                          " zile"}{" "}
+                      </li>
+                    );
+                  } else return null;
+                })}
+              </ul>
+            </Collapsible>
+          </div>
+          <div className="fridge">
+            {this.state.foodTypes.map((item) => {
+              return (
+                <Collapsible
+                  trigger={<i style={{ fontSize: "20px" }}>{item}</i>}
+                  triggerTagName="ul"
+                >
+                  <ul>
+                    {this.state.foods.map((item2) => {
+                      if (item2.FoodType == item) {
+                        var styleLi = {
+                          color: "",
+                          cursor: "grab",
+                        };
+                        if (item2.Available == "True") {
+                          styleLi.color = "green";
+                        } else {
+                          styleLi.color = "red";
+                        }
+
+                        return (
+                          <li
+                            style={styleLi}
+                            onDoubleClick={async (ev) => {
+                              if (item2.Available == "True") {
+                                item2.Available = "False";
+                                ev.target.style.color = "red";
+                              } else {
+                                item2.Available = "True";
+                                ev.target.style.color = "green";
+                              }
+                              try {
+                                await update(foodRoute, item2, item2.FoodId);
+                              } catch (er) {
+                                alert(er);
+                              }
+                            }}
+                          >
+                            {" "}
+                            <button
+                              className="buttonAddFriend"
+                              onClick={async () => {
+                                await deleteSmth(foodRoute, item2.FoodId);
+                                let newFoods = this.state.foods.filter(
+                                  (el) => el.FoodId != item2.FoodId
+                                );
+                                this.setState({
+                                  foods: newFoods,
+                                });
+                              }}
+                              style={{ marginRight: "10px" }}
+                            >
+                              <FontAwesomeIcon icon={faTrash} />
+                            </button>
+                            {item2.FoodName}
+                          </li>
+                        );
                       }
-                      console.log(item2.FoodName,styleLi,item2.Available);
-                      return <li style={styleLi} onDoubleClick={async(ev)=>{
-                        if(item2.Available=="True"){
-                          item2.Available="False"
-                          ev.target.style.color="blue";
-                        }else{
-                          item2.Available="True"
-                          ev.target.style.color="red";
-                        }
-                        try{
-                          await update(foodRoute,item2,item2.FoodId)
-                        }catch(er){
-                          alert(er);
-                        }
-                      }}> <button
-                        className="buttonAddFriend"
-                        onClick={async() => {
-                          await deleteSmth(foodRoute,item2.FoodId);
-                          let newFoods=this.state.foods.filter(el=>el.FoodId!=item2.FoodId);
-                          this.setState({
-                            foods:newFoods
-                          })
-
-                        }}
-                      >
-                        <FontAwesomeIcon icon={faTrash} />
-                      </button>{item2.FoodName}</li>;
-                    }
-                  })}
-                </ul>
-              </Collapsible>
-            );
-          })}
-
-          {/* <Collapsible
-            onOpen={() => {
-              this.open("cheese");
-            }}
-            onClose={() => {
-              this.close("cheese");
-            }}
-            trigger="Branzeturi"
-            triggerTagName="ul"
-          >
-            <ul id="cheese"></ul>
-          </Collapsible>
-
-          <Collapsible
-            onOpen={() => {
-              this.open("milks");
-            }}
-            onClose={() => {
-              this.close("milks");
-            }}
-            trigger="Lactate"
-            triggerTagName="ul"
-          >
-            <ul id="milks"></ul>
-          </Collapsible>
-          <Collapsible
-            onOpen={() => {
-              this.open("alcool");
-            }}
-            onClose={() => {
-              this.close("alcool");
-            }}
-            trigger="Alcool"
-            triggerTagName="ul"
-          >
-            <ul id="alcool"></ul>
-          </Collapsible>
-          <Collapsible
-            onOpen={() => {
-              this.open("liquids");
-            }}
-            onClose={() => {
-              this.close("liquids");
-            }}
-            trigger="Lichide"
-            triggerTagName="ul"
-          >
-            <ul id="liquids"></ul>
-          </Collapsible>
-          <Collapsible
-            onOpen={() => {
-              this.open("beef");
-            }}
-            onClose={() => {
-              this.close("beef");
-            }}
-            trigger="Carne de Vita"
-            triggerTagName="ul"
-          >
-            <ul id="beef"></ul>
-          </Collapsible>
-          <Collapsible
-            onOpen={() => {
-              this.open("chick");
-            }}
-            onClose={() => {
-              this.close("chick");
-            }}
-            trigger="Carne de Pui"
-            triggerTagName="ul"
-          >
-            <ul id="chick"></ul>
-          </Collapsible>
-          <Collapsible
-            onOpen={() => {
-              this.open("lamb");
-            }}
-            onClose={() => {
-              this.close("lamb");
-            }}
-            trigger="Carne de Miel"
-            triggerTagName="ul"
-          >
-            <ul id="lamb"></ul>
-          </Collapsible>
-          <Collapsible
-            onOpen={() => {
-              this.open("pork");
-            }}
-            onClose={() => {
-              this.close("pork");
-            }}
-            trigger="Carne de Porc"
-            triggerTagName="ul"
-          >
-            <ul id="pork">
-              {this.state.foods.map((item) => {
-                if (item.FoodType == "Carne de Porc")
-                  return <li>{item.FoodName + `(${item.FoodQuantity})`}</li>;
-              })}
-            </ul>
-          </Collapsible>
-          <Collapsible
-            onOpen={() => {
-              this.open("fruits");
-            }}
-            onClose={() => {
-              this.close("fruits");
-            }}
-            trigger="Fructe"
-            triggerTagName="ul"
-          >
-            <ul id="fruits"></ul>
-          </Collapsible>
-          <Collapsible
-            onOpen={() => {
-              this.open("vegs");
-            }}
-            onClose={() => {
-              this.close("vegs");
-            }}
-            trigger="Legume"
-            triggerTagName="ul"
-          >
-            <ul id="vegs"></ul>
-          </Collapsible>
-          <Collapsible
-            onOpen={() => {
-              this.open("fish");
-            }}
-            onClose={() => {
-              this.close("fish");
-            }}
-            trigger="Peste"
-            triggerTagName="ul"
-          >
-            <ul id="fish"></ul>
-          </Collapsible>
-          <Collapsible
-            onOpen={() => {
-              this.open("cooked");
-            }}
-            onClose={() => {
-              this.close("cooked");
-            }}
-            trigger="Mancare gatita"
-            triggerTagName="ul"
-          >
-            <ul id="cooked"></ul>
-          </Collapsible>
-          <Collapsible
-            onOpen={() => {
-              this.open("desert");
-            }}
-            onClose={() => {
-              this.close("desert");
-            }}
-            trigger="Desert"
-            triggerTagName="ul"
-          >
-            <ul id="desert"></ul>
-          </Collapsible> */}
+                    })}
+                  </ul>
+                </Collapsible>
+              );
+            })}
           </div>
         </div>
         <button id="addFood" onClick={this.regFood}>
@@ -773,14 +753,15 @@ export default class Main extends Component {
         </button>
 
         <div className="Groups">
-          <h3 style={{textAlign:"center"}}><i>Your Groups</i></h3>
+          <h3 style={{ textAlign: "center" }}>
+            <i>Your Groups</i>
+          </h3>
           {this.state.groups.map((item) => {
             return (
-              <div>
+              <div class="groupItems">
                 <Collapsible
                   trigger={item.GroupDescription}
                   triggerTagName="ul"
-                 
                 >
                   {item.GroupsUsers.map((item2) => {
                     let usName = "";
@@ -794,8 +775,21 @@ export default class Main extends Component {
                         usSurName = us[i];
                       }
                     }
-                    if (usName !== "") return <p>{usName + " " + usSurName}</p>;
-                    else return;
+                    if (usName !== "")
+                      return (
+                        <p>
+                          <button
+                            style={{ marginRight: "10px ", marginLeft: "10px" }}
+                            onClick={() => {
+                              this.deleteGroupUser(item2.GroupsUsersId);
+                            }}
+                          >
+                            <FontAwesomeIcon icon={faTrash} />
+                          </button>
+                          {usName + " " + usSurName}
+                        </p>
+                      );
+                    else return null;
                   })}
                 </Collapsible>
               </div>
@@ -807,7 +801,7 @@ export default class Main extends Component {
           id="groups"
           onClick={(item) => {
             let side = document.querySelector(".Groups");
-            if (this.state.sidebarOpen == "none") {
+            if (this.state.sidebarOpen === "none") {
               side.style.display = "inline";
               item.target.style.animation = "buttonopen 1s forwards";
               side.style.animation = "sidebaropen 1s forwards";
@@ -838,8 +832,18 @@ export default class Main extends Component {
                         GroupId: item.GroupId,
                         UserId: this.state.idAdd,
                       };
-
-                      await post(groupUsersRoute, groupUser);
+                      try {
+                        await post(groupUsersRoute, groupUser);
+                        var groups = await getUserGroups(
+                          groupRoute,
+                          this.state.user.UserId
+                        );
+                        this.setState({
+                          groups: groups,
+                        });
+                      } catch (e) {
+                        console.log(e);
+                      }
                     }}
                   >
                     {" "}
@@ -854,26 +858,57 @@ export default class Main extends Component {
           })}
         </Modal>
         <Modal show={this.state.show2} handleClose={this.hideModal2}>
-          {this.state.friendFoods.map((item)=>{
-           return (
-            <div className="modalGroups">
-              <div>
-                <button
-                  onClick={()=>{
-                    this.takeFood(item.FoodId);
-                  }}
-                >
-                  {" "}
-                  <FontAwesomeIcon icon={faPlusCircle} />
-                </button>
-              </div>
-              <div>
-                <p>{item.FoodName}</p>
-              </div>
-            </div>
-          );
+          {this.state.friendFoods.map((item) => {
+            if (item.Available == "True")
+              return (
+                <div className="modalGroups">
+                  <div>
+                    <button
+                      onClick={() => {
+                        this.takeFood(item.FoodId);
+                      }}
+                    >
+                      {" "}
+                      <FontAwesomeIcon icon={faPlusCircle} />
+                    </button>
+                  </div>
+                  <div>
+                    <p>{item.FoodName}</p>
+                  </div>
+                </div>
+              );
           })}
         </Modal>
+        <div className="sharedButton">
+          <div>
+            <FacebookShareButton
+              url="https://www.localhost:3000"
+              hashtag="#NoFoodWaste"
+              appId="Hellow"
+              quote="Share your food with us, don't waste it anymore!"
+              style={{ marginRight: "10px" }}
+            >
+              <FacebookIcon
+                size={"4rem"} // You can use rem value instead of numbers
+                round
+              >
+                Buna ziua
+              </FacebookIcon>
+            </FacebookShareButton>
+          </div>
+          <WhatsappShareButton
+            title="Hey, come and help us save the planet, don't waste anymore food!!🍕🍳🥓🧆🍦🥘🍪🍰🥣🍤🦪🥮☕🍾🍓🍉🍍🥕🌶 !!"
+            url="http://www.google.ro"
+          >
+            <WhatsappIcon
+              size={"4rem"} // You can use rem value instead of numbers
+              round
+            >
+              Buna ziua
+            </WhatsappIcon>
+          </WhatsappShareButton>
+          <div></div>
+        </div>
       </div>
     );
   }

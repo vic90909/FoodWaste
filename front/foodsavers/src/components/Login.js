@@ -49,7 +49,7 @@ export default class Login extends Component {
             provides you the chance to recycle food and donate it to people that
             need it the most! <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You are not a member yet? Make sure
-            you register and than the fun can begin!
+            you <a style={{color: 'pink', cursor: 'pointer'}} onClick={()=>{this.props.history.push("/register");}}>register</a> and than the fun can begin!
           </p>
         </div>
       </div>

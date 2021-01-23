@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Register.css";
-import { get, getByEmail, post } from "../Calls";
+import { post } from "../Calls";
 import { userRoute } from "../ApiRoutes";
 
 const emailRegex = RegExp(
@@ -43,7 +43,7 @@ class Register extends Component {
         UserEmail: "",
         UserPass: "",
         UserAge: 0,
-        UserAgeError:"",
+        UserAgeError: "",
         UserPhone: "",
         UserAdress: "",
       },
@@ -51,9 +51,10 @@ class Register extends Component {
   }
 
   saveUser = async () => {
-    let res = await post(userRoute, this.state.user).then((user) => {
+    await post(userRoute, this.state.user).then((user) => {
       if (user.message === undefined) {
-        alert("gg");
+      alert("Felicitari, v-ati inregistrat cu succes!!");
+      this.props.history.push("/");
       } else {
         alert(user.message);
       }
@@ -66,7 +67,7 @@ class Register extends Component {
     if (formValid(this.state)) {
       this.saveUser();
     } else {
-      console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
+      alert("Aveti unul sau mai multe campuri cu greseli");
     }
   };
 
@@ -82,34 +83,52 @@ class Register extends Component {
     switch (name) {
       case "UserName":
         formErrors.UserName =
-          value.length < 3 ? "Minimum 3 characaters required" : "";
+          value.length < 3 ? "Minimum 3 characaters required" : value.length > 255 ? "First Name too long" : "";
         break;
       case "UserSurname":
         formErrors.UserSurname =
-          value.length < 3 ? "Minimum 3 characaters required" : "";
+          value.length < 3
+            ? "Minimum 3 characaters required"
+            : value.length > 255
+            ? "Last Name too long"
+            : "";
         break;
       case "UserEmail":
         formErrors.UserEmail = emailRegex.test(value)
           ? ""
           : "Invalid email address";
+        if(value.length>255){
+          formErrors.UserEmail ="Email too long";
+        }
         break;
       case "UserPass":
         formErrors.UserPass =
-          value.length < 6 ? "Minimum 6 characaters required" : "";
+          value.length < 6
+            ? "Minimum 6 characaters required"
+            : value.length > 255
+            ? "Password too long"
+            : "";
         break;
       case "UserAge":
         formErrors.UserAgeError = value < 18 ? "Minimun 18 years old" : "";
         break;
       case "UserPhone":
         formErrors.UserPhone =
-          value.length < 10 ? "Minimum 10 characaters required" : "";
+          value.length < 10
+            ? "Minimum 10 characaters required"
+            : value.length > 15
+            ? "Phone too long"
+            : "";
         break;
       case "UserAdress":
         formErrors.UserAdress =
-          value.length < 10 ? "Minimum 10 characaters required" : "";
+          value.length < 10
+            ? "Minimum 10 characaters required"
+            : value.length > 255
+            ? "Address too long"
+            : "";
         break;
       default:
-    
     }
 
     this.setState({ formErrors, [name]: value }, () => console.log(this.state));
@@ -176,7 +195,7 @@ class Register extends Component {
             <div className="password">
               <label htmlFor="UserAge">Age</label>
               <input
-                className={formErrors.UserAge.length> 0 ? "error" : null}
+                className={formErrors.UserAge.length > 0 ? "error" : null}
                 placeholder="Age"
                 type="number"
                 name="UserAge"
